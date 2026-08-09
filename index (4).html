@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Arte & Dibujos | Portfolio de Ilustraciones</title>
+
+<meta name="description" content="Portfolio de dibujos e ilustraciones personalizadas.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="estilos.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<div class="container header-inner">
+
+<a href="#" class="logo" onclick="mostrarInicio()">
+
+<div class="logo-icon">
+
+<svg xmlns="http://www.w3.org/2000/svg"
+fill="none"
+viewBox="0 0 24 24"
+stroke="currentColor"
+stroke-width="2">
+
+<path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+
+</svg>
+
+</div>
+
+<span>
+Arte <span style="color:var(--rosa);">& Dibujos</span>
+</span>
+
+</a>
+
+
+<nav class="desktop">
+
+<a href="#" onclick="mostrarInicio()">Inicio</a>
+
+<a href="#coleccion">Colección</a>
+
+<a href="#proceso">Mi proceso</a>
+
+<a href="#personalizados">Personalizados</a>
+
+<a href="#sobre-mi">Sobre mí</a>
+
+<a href="#contacto">Contacto</a>
+
+</nav>
+
+
+<button class="menu-btn"
+aria-label="Abrir menú"
+onclick="document.getElementById('mobileMenu').classList.add('open')">
+
+<svg xmlns="http://www.w3.org/2000/svg"
+fill="none"
+viewBox="0 0 24 24"
+stroke="currentColor"
+stroke-width="2">
+
+<path d="M4 6h16M4 12h16M4 18h16"/>
+
+</svg>
+
+</button>
+
+</div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MENÚ MÓVIL
+===================================================== -->
+
+<div id="mobileMenu"
+class="mobile-menu"
+onclick="if(event.target===this)cerrarMenu()">
+
+<div class="mobile-panel">
+
+<button class="close-btn"
+onclick="cerrarMenu()">
+
+<svg xmlns="http://www.w3.org/2000/svg"
+fill="none"
+viewBox="0 0 24 24"
+stroke="currentColor"
+stroke-width="2">
+
+<path d="M6 18L18 6M6 6l12 12"/>
+
+</svg>
+
+</button>
+
+
+<div style="margin-top:55px;">
+
+<a href="#" onclick="mostrarInicio();cerrarMenu();">
+Inicio
+</a>
+
+<a href="#coleccion" onclick="cerrarMenu();">
+Colección
+</a>
+
+<a href="#proceso" onclick="cerrarMenu();">
+Mi proceso
+</a>
+
+<a href="#personalizados" onclick="cerrarMenu();">
+Personalizados
+</a>
+
+<a href="#sobre-mi" onclick="cerrarMenu();">
+Sobre mí
+</a>
+
+<a href="#contacto" onclick="cerrarMenu();">
+Contacto
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     PÁGINA PRINCIPAL
+===================================================== -->
+
+<div id="paginaPrincipal">
+
+<main>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="inicio">
+
+<div class="hero-bg">
+
+<div class="blob blob-1"></div>
+
+<div class="blob blob-2"></div>
+
+</div>
+
+
+<div class="container hero-grid">
+
+
+<div class="hero-text">
+
+<div class="badge">
+
+<svg xmlns="http://www.w3.org/2000/svg"
+fill="none"
+viewBox="0 0 24 24"
+stroke="currentColor"
+stroke-width="2">
+
+<path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143z"/>
+
+</svg>
+
+Ilustraciones hechas a mano
+
+</div>
+
+
+<h1>
+
+Dibujos que cuentan
+
+<span class="text-accent">
+historias
+</span>
+
+</h1>
+
+
+<p>
+
+Explora una colección única de ilustraciones
+en blanco y negro, acuarela y a color.
+Cada pieza está creada con dedicación,
+detalle y mucho amor por el arte.
+
+</p>
+
+
+<div class="btn-group">
+
+<a href="#coleccion"
+class="btn btn-primary">
+
+Ver colección
+
+</a>
+
+<a href="#personalizados"
+class="btn btn-outline">
+
+Pedir personalizado
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<div class="hero-image">
+
+<div class="hero-img-wrap">
+
+<img
+src="01_retrato_flores.png"
+alt="Ilustración principal de retrato artístico con flores">
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     COLECCIONES
+===================================================== -->
+
+<section id="coleccion">
+
+<div class="container reveal">
+
+
+<div class="decoracion">
+✦ · ✧ · ✦
+</div>
+
+
+<div class="section-title">
+
+<h2>
+
+Colecciones
+
+<span class="text-accent">
+destacadas
+</span>
+
+</h2>
+
+<p>
+
+Tres estilos, una misma pasión:
+transformar ideas en arte.
+
+</p>
+
+</div>
+
+
+<div class="cards-grid">
+
+
+<!-- BLANCO Y NEGRO -->
+
+<article class="card">
+
+<div class="card-img">
+
+<img
+src="02_dibujo_blanco_y_negro.png"
+alt="Dibujos blanco y negro">
+
+<span class="card-badge">
+Clásico
+</span>
+
+</div>
+
+
+<div class="card-body">
+
+<h3>
+Dibujos blanco y negro
+</h3>
+
+<p>
+
+Retratos, animales y paisajes realizados
+con lápiz y grafito. Elegancia en cada trazo.
+
+</p>
+
+
+<a class="card-link"
+onclick="abrirGaleria('galeriaBlanco')">
+
+Explorar colección →
+
+</a>
+
+</div>
+
+</article>
+
+
+
+<!-- ACUARELA -->
+
+<article class="card">
+
+<div class="card-img">
+
+<img
+src="03_dibujo_acuarela.png"
+alt="Dibujos en acuarela">
+
+<span class="card-badge">
+Delicado
+</span>
+
+</div>
+
+
+<div class="card-body">
+
+<h3>
+Dibujos en acuarela
+</h3>
+
+<p>
+
+Colores suaves y translúcidos que dan vida
+a flores, paisajes y escenas oníricas.
+
+</p>
+
+
+<a class="card-link"
+onclick="abrirGaleria('galeriaAcuarela')">
+
+Explorar colección →
+
+</a>
+
+</div>
+
+</article>
+
+
+
+<!-- A COLOR -->
+
+<article class="card">
+
+<div class="card-img">
+
+<img
+src="04_dibujo_a_color.png"
+alt="Dibujos a color">
+
+<span class="card-badge">
+Vibrante
+</span>
+
+</div>
+
+
+<div class="card-body">
+
+<h3>
+Dibujos a color
+</h3>
+
+<p>
+
+Ilustraciones vibrantes con lápices
+de colores y diferentes técnicas.
+
+</p>
+
+
+<a class="card-link"
+onclick="abrirGaleria('galeriaColor')">
+
+Explorar colección →
+
+</a>
+
+</div>
+
+</article>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MI PROCESO
+===================================================== -->
+
+<section class="proceso" id="proceso">
+
+<div class="container reveal">
+
+
+<div class="decoracion">
+✦ · ✧ · ✦
+</div>
+
+
+<div class="section-title">
+
+<h2>
+
+Mi proceso
+
+<span class="text-accent">
+creativo
+</span>
+
+</h2>
+
+<p>
+
+Cada dibujo comienza con una idea
+y se transforma poco a poco en una obra.
+
+</p>
+
+</div>
+
+
+<div class="proceso-grid">
+
+
+<div class="proceso-card">
+
+<div class="proceso-numero">
+1
+</div>
+
+<h3>
+Boceto
+</h3>
+
+<p>
+Comienzo con las primeras líneas
+y defino la composición del dibujo.
+</p>
+
+</div>
+
+
+<div class="proceso-card">
+
+<div class="proceso-numero">
+2
+</div>
+
+<h3>
+Detalles
+</h3>
+
+<p>
+Agrego sombras, texturas y pequeños
+detalles para darle personalidad.
+</p>
+
+</div>
+
+
+<div class="proceso-card">
+
+<div class="proceso-numero">
+3
+</div>
+
+<h3>
+Color
+</h3>
+
+<p>
+Elijo los colores y materiales que
+mejor representan la idea.
+</p>
+
+</div>
+
+
+<div class="proceso-card">
+
+<div class="proceso-numero">
+4
+</div>
+
+<h3>
+Resultado
+</h3>
+
+<p>
+El dibujo cobra vida y se convierte
+en una pieza única.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PERSONALIZADOS
+===================================================== -->
+
+<section class="personalizados"
+id="personalizados">
+
+<div class="container personalizados-grid reveal">
+
+
+<div>
+
+<h2>
+
+¿Quieres un dibujo
+
+<span class="text-accent">
+personalizado
+</span>?
+
+</h2>
+
+
+<p class="personalizados-description">
+
+Desde retratos de personas y mascotas hasta
+ilustraciones para regalos, decoración o proyectos
+especiales. Cuéntame tu idea y la convierto en una
+obra única hecha a mano.
+
+</p>
+
+
+<ul>
+
+<li>
+
+<span class="icon-check">
+✓
+</span>
+
+Retratos personalizados
+
+</li>
+
+
+<li>
+
+<span class="icon-check">
+✓
+</span>
+
+Ilustraciones de mascotas
+
+</li>
+
+
+<li>
+
+<span class="icon-check">
+✓
+</span>
+
+Regalos originales
+
+</li>
+
+
+<li>
+
+<span class="icon-check">
+✓
+</span>
+
+Arte decorativo
+
+</li>
+
+</ul>
+
+
+<div class="btn-group">
+
+<a href="#contacto"
+class="btn btn-primary">
+
+Pedir personalizado
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SOBRE MÍ
+===================================================== -->
+
+<div class="about-card"
+id="sobre-mi">
+
+<div class="about-card-header">
+
+<h3>
+Sobre mí
+</h3>
+
+<p>
+Una pequeña parte detrás de cada dibujo.
+</p>
+
+</div>
+
+
+<div class="about-card-body">
+
+<img
+src="05_dibujo_a_lapiz.png"
+alt="Ejemplo de dibujo a lápiz">
+
+
+<img
+src="03_dibujo_acuarela.png"
+alt="Ejemplo de acuarela">
+
+
+<p>
+
+Soy una artista apasionada por el dibujo
+y la ilustración. Me gusta transformar ideas,
+emociones y momentos especiales en obras
+hechas con dedicación y detalle.
+
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+</main>
+
+</div>
+
+
+
+<!-- =====================================================
+     GALERÍA BLANCO Y NEGRO
+===================================================== -->
+
+<section id="galeriaBlanco"
+class="gallery-page">
+
+<div class="container">
+
+
+<div class="gallery-header">
+
+<button class="back-btn"
+onclick="mostrarInicio()">
+
+← Volver a colecciones
+
+</button>
+
+
+<h2>
+
+Dibujos en
+
+<span class="text-accent">
+blanco y negro
+</span>
+
+</h2>
+
+
+<p>
+
+Una colección de dibujos realizados
+con lápiz, grafito y diferentes técnicas.
+
+</p>
+
+</div>
+
+
+<div class="gallery-grid">
+
+
+<div class="gallery-item"
+onclick="abrirImagen('blanco1.png','Retrato en grafito')">
+
+<img src="blanco1.png"
+alt="Dibujo blanco y negro 1">
+
+<div class="gallery-caption">
+Retrato en grafito
+</div>
+
+</div>
+
+
+<div class="gallery-item"
+onclick="abrirImagen('blanco2.png','Retrato artístico')">
+
+<img src="blanco2.png"
+alt="Dibujo blanco y negro 2">
+
+<div class="gallery-caption">
+Retrato artístico
+</div>
+
+</div>
+
+
+<div class="gallery-item"
+onclick="abrirImagen('blanco3.png','Naturaleza')">
+
+<img src="blanco3.png"
+alt="Dibujo blanco y negro 3">
+
+<div class="gallery-caption">
+Naturaleza
+</div>
+
+</div>
+
+
+<div class="gallery-item"
+onclick="abrirImagen('blanco4.png','Detalles a lápiz')">
+
+<img src="blanco4.png"
+alt="Dibujo blanco y negro 4">
+
+<div class="gallery-caption">
+Detalles a lápiz
+</div>
+
+</div>
+
+
+<div class="gallery-item"
+onclick="abrirImagen('blanco5.png','Ilustración clásica')">
+
+<img src="blanco5.png"
+alt="Dibujo blanco y negro 5">
+
+<div class="gallery-caption">
+Ilustración clásica
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     GALERÍA ACUARELA
+===================================================== -->
+
+<section id="galeriaAcuarela"
+class="gallery-page">
+
+<div class="container">
+
+
+<div class="gallery-header">
+
+<button class="back-btn"
+onclick="mostrarInicio()">
+
+← Volver a colecciones
+
+</button>
+
+
+<h2>
+
+Dibujos en
+
+<span class="text-accent">
+acuarela
+</span>
+
+</h2>
+
+
+<p>
+
+Colores suaves, transparencias y pinceladas
+que crean ilustraciones delicadas y llenas de vida.
+
+</p>
+
+</div>
+
+
+<div class="gallery-grid">
+
+
+<div class="gallery-item"
+onclick="abrirImagen('acuarela1.png','Flores en acuarela')">
+
+<img src="acuarela1.png"
+alt="Acuarela 1">
+
+<div class="gallery-caption">
+Flores en acuarela
+</div>
+
+</div>
+
+
+<div class="gallery-item"
+onclick="abrirImagen('acuarela2.png','Paisaje')">
+
+<img src="acuarela2.png"
+alt="Acuarela 2">
+
+<div class="gallery-caption">
+Paisaje
+</div>
+
+</div>
+
+
+<div class="gallery-item"
+onclick="abrirImagen('acuarela3.png','Naturaleza')">
+
+<img src="acuarela3.png"
+alt="Acuarela 3">
+
+<div class="gallery-caption">
+Naturaleza
+</div>
+
+</div>
+
+
+<div class="gallery-item"
+onclick="abrirImagen('acuarela4.png','Composición floral')">
+
+<img src="acuarela4.png"
+alt="Acuarela 4">
+
+<div class="gallery-caption">
+Composición floral
+</div>
+
+</div>
+
+
+<div class="gallery-item"
+onclick="abrirImagen('acuarela5.png','Ilustración delicada')">
+
+<img src="acuarela5.png"
+alt="Acuarela 5">
+
+<div class="gallery-caption">
+Ilustración delicada
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     GALERÍA A COLOR
+===================================================== -->
+
+<section id="galeriaColor"
+class="gallery-page">
+
+<div class="container">
+
+
+<div class="gallery-header">
+
+<button class="back-btn"
+onclick="mostrarInicio()">
+
+← Volver a colecciones
+
+</button>
+
+
+<h2>
+
+Dibujos
+
+<span class="text-accent">
+a color
+</span>
+
+</h2>
+
+
+<p>
+
+Ilustraciones llenas de color realizadas
+con lápices y diferentes técnicas.
+
+</p>
+
+</div>
+
+
+<div class="gallery-grid">
+
+
+<div class="gallery-item"
+onclick="abrirImagen('color1.png','Ilustración colorida')">
+
+<img src="color1.png"
+alt="Dibujo a color 1">
+
+<div class="gallery-caption">
+Ilustración colorida
+</div>
+
+</div>
+
+
+<div class="gallery-item"
+onclick="abrirImagen('color2.png','Flores a color')">
+
+<img src="color2.png"
+alt="Dibujo a color 2">
+
+<div class="gallery-caption">
+Flores a color
+</div>
+
+</div>
+
+
+<div class="gallery-item"
+onclick="abrirImagen('color3.png','Personaje ilustrado')">
+
+<img src="color3.png"
+alt="Dibujo a color 3">
+
+<div class="gallery-caption">
+Personaje ilustrado
+</div>
+
+</div>
+
+
+<div class="gallery-item"
+onclick="abrirImagen('color4.png','Ilustración vibrante')">
+
+<img src="color4.png"
+alt="Dibujo a color 4">
+
+<div class="gallery-caption">
+Ilustración vibrante
+</div>
+
+</div>
+
+
+<div class="gallery-item"
+onclick="abrirImagen('color5.png','Arte a color')">
+
+<img src="color5.png"
+alt="Dibujo a color 5">
+
+<div class="gallery-caption">
+Arte a color
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     VISOR DE IMÁGENES
+===================================================== -->
+
+<div id="imageModal"
+class="image-modal"
+onclick="cerrarModal(event)">
+
+<div class="modal-content">
+
+<button class="modal-close"
+onclick="cerrarImagen()">
+
+×
+</button>
+
+
+<img id="modalImage"
+src=""
+alt="">
+
+
+<div id="modalTitle"
+class="modal-title">
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     BOTÓN VOLVER ARRIBA
+===================================================== -->
+
+<button id="topBtn"
+class="top-btn"
+onclick="window.scrollTo({top:0,behavior:'smooth'})"
+aria-label="Volver arriba">
+
+↑
+
+</button>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer id="contacto">
+
+<div class="container">
+
+<div class="footer-grid">
+
+
+<div class="footer-brand">
+
+<a href="#"
+class="logo"
+style="color:white;"
+onclick="mostrarInicio()">
+
+<div class="logo-icon">
+
+<svg xmlns="http://www.w3.org/2000/svg"
+fill="none"
+viewBox="0 0 24 24"
+stroke="currentColor"
+stroke-width="2">
+
+<path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+
+</svg>
+
+</div>
+
+
+<span>
+
+Arte
+<span style="color:var(--rosa-claro);">
+& Dibujos
+</span>
+
+</span>
+
+</a>
+
+
+<p>
+
+Ilustraciones hechas a mano con amor
+y dedicación. Cada trazo cuenta una historia única.
+
+</p>
+
+</div>
+
+
+
+<div class="footer-col">
+
+<h4>
+Contacto
+</h4>
+
+
+<ul>
+
+<li>
+
+<a href="https://maps.google.com/?q=Balnearia,Córdoba"
+target="_blank"
+rel="noreferrer">
+
+📍 Balnearia, Córdoba, Argentina
+
+</a>
+
+</li>
+
+
+<li>
+
+<a href="https://wa.me/5493563430599?text=Hola!%20Me%20interesa%20un%20dibujo%20personalizado"
+target="_blank"
+rel="noreferrer">
+
+💬 Contactar por WhatsApp
+
+</a>
+
+</li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+<p>
+
+© 2026 Arte & Dibujos.
+Todos los derechos reservados.
+
+</p>
+
+</div>
+
+</div>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
