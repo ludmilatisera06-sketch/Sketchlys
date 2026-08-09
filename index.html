@@ -9,12 +9,18 @@
 
 <title>Arte & Dibujos | Portfolio de Ilustraciones</title>
 
-<meta name="description" content="Portfolio de dibujos e ilustraciones personalizadas.">
+<meta name="description" content="Portfolio de dibujos e ilustraciones personalizadas. Descubre colecciones en blanco y negro, acuarela y a color. Encargos únicos hechos a mano.">
+
+<meta property="og:title" content="Arte & Dibujos | Portfolio de Ilustraciones">
+<meta property="og:description" content="Portfolio de dibujos e ilustraciones personalizadas.">
+<meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary_large_image">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -24,22 +30,18 @@
 
 :root{
 
-    --crema:#FFF9F5;
-    --rosa:#D8A7B1;
-    --rosa-claro:#F1D5DB;
-    --rosa-suave:#FBECEF;
+    --violet:#7C3AED;
+    --pink:#EC4899;
 
-    --marron:#5A4640;
-    --gris:#766B68;
+    --white:#FFFFFF;
+    --dark:#2D2D2D;
 
-    --beige:#E8D8CC;
-    --dorado:#C9A66B;
+    --muted:#F3F4F6;
+    --muted-foreground:#6B7280;
 
-    --blanco:#FFFFFF;
+    --border:#E5E7EB;
 
-    --borde:#EADBD5;
-
-    --sombra:0 12px 35px rgba(90,70,64,.10);
+    --radius:0.75rem;
 
 }
 
@@ -49,35 +51,78 @@
 ===================================================== */
 
 *{
-    margin:0;
-    padding:0;
+
     box-sizing:border-box;
+
+    margin:0;
+
+    padding:0;
+
 }
 
 html{
+
     scroll-behavior:smooth;
+
 }
 
 body{
 
-    font-family:'Montserrat',sans-serif;
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
 
-    background:var(--crema);
+    background:var(--white);
 
-    color:var(--marron);
+    color:var(--dark);
 
-    line-height:1.7;
+    line-height:1.6;
 
 }
 
 a{
+
     text-decoration:none;
+
     color:inherit;
+
 }
 
 img{
+
     max-width:100%;
+
     display:block;
+
+}
+
+
+/* =====================================================
+   COLORES Y DEGRADADOS
+===================================================== */
+
+.gradient-brand{
+
+    background:linear-gradient(
+        135deg,
+        var(--violet),
+        var(--pink)
+    );
+
+}
+
+.text-gradient{
+
+    background:linear-gradient(
+        135deg,
+        var(--violet),
+        var(--pink)
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+    background-clip:text;
+
 }
 
 
@@ -89,51 +134,31 @@ img{
 
     width:100%;
 
-    max-width:1200px;
+    max-width:80rem;
 
-    margin:auto;
+    margin:0 auto;
 
-    padding:0 20px;
-
-}
-
-
-/* =====================================================
-   TIPOGRAFÍA
-===================================================== */
-
-h1,
-h2,
-h3,
-.logo{
-
-    font-family:'Playfair Display',serif;
+    padding:0 1rem;
 
 }
 
-h1{
+@media(min-width:640px){
 
-    font-size:3.3rem;
+    .container{
 
-    line-height:1.15;
+        padding:0 1.5rem;
 
-    font-weight:600;
-
-}
-
-h2{
-
-    font-size:2.4rem;
-
-    line-height:1.2;
-
-    font-weight:600;
+    }
 
 }
 
-h3{
+@media(min-width:1024px){
 
-    font-weight:600;
+    .container{
+
+        padding:0 2rem;
+
+    }
 
 }
 
@@ -150,17 +175,15 @@ header{
 
     z-index:50;
 
-    background:rgba(255,249,245,.95);
+    background:rgba(255,255,255,.95);
 
-    backdrop-filter:blur(12px);
+    backdrop-filter:blur(10px);
 
-    border-bottom:1px solid rgba(216,167,177,.25);
+    border-bottom:1px solid rgba(229,231,235,.5);
 
 }
 
 .header-inner{
-
-    height:78px;
 
     display:flex;
 
@@ -168,10 +191,9 @@ header{
 
     justify-content:space-between;
 
+    height:4rem;
+
 }
-
-
-/* LOGO */
 
 .logo{
 
@@ -179,19 +201,23 @@ header{
 
     align-items:center;
 
-    gap:11px;
+    gap:.5rem;
 
-    font-size:1.35rem;
+    font-weight:800;
 
-    font-weight:600;
+    font-size:1.125rem;
+
+    letter-spacing:-.025em;
 
 }
 
 .logo-icon{
 
-    width:43px;
+    width:2.25rem;
 
-    height:43px;
+    height:2.25rem;
+
+    border-radius:.5rem;
 
     display:flex;
 
@@ -199,23 +225,21 @@ header{
 
     justify-content:center;
 
-    border-radius:50%;
-
-    background:var(--rosa);
-
     color:white;
 
 }
 
 .logo-icon svg{
 
-    width:22px;
+    width:1.25rem;
+
+    height:1.25rem;
 
 }
 
 
 /* =====================================================
-   MENÚ
+   NAV
 ===================================================== */
 
 nav.desktop{
@@ -226,56 +250,51 @@ nav.desktop{
 
 nav.desktop a{
 
-    position:relative;
+    padding:.5rem .75rem;
 
-    padding:8px 12px;
+    border-radius:.375rem;
 
-    font-size:.85rem;
+    font-size:.875rem;
 
-    font-weight:600;
+    font-weight:500;
 
-    color:var(--marron);
+    color:rgba(45,45,45,.8);
 
-    transition:.3s;
-
-}
-
-nav.desktop a::after{
-
-    content:"";
-
-    position:absolute;
-
-    bottom:0;
-
-    left:50%;
-
-    width:0;
-
-    height:2px;
-
-    background:var(--rosa);
-
-    transform:translateX(-50%);
-
-    transition:.3s;
+    transition:all .2s;
 
 }
 
 nav.desktop a:hover{
 
-    color:var(--rosa);
+    background:rgba(124,58,237,.1);
+
+    color:var(--violet);
 
 }
 
-nav.desktop a:hover::after{
+.menu-btn{
 
-    width:60%;
+    background:none;
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:.5rem;
+
+    color:var(--dark);
 
 }
 
+.menu-btn svg{
 
-@media (min-width:768px){
+    width:1.5rem;
+
+    height:1.5rem;
+
+}
+
+@media(min-width:768px){
 
     nav.desktop{
 
@@ -283,7 +302,7 @@ nav.desktop a:hover::after{
 
         align-items:center;
 
-        gap:4px;
+        gap:.25rem;
 
     }
 
@@ -300,24 +319,6 @@ nav.desktop a:hover::after{
    MENÚ MÓVIL
 ===================================================== */
 
-.menu-btn{
-
-    background:none;
-
-    border:none;
-
-    cursor:pointer;
-
-    color:var(--marron);
-
-}
-
-.menu-btn svg{
-
-    width:25px;
-
-}
-
 .mobile-menu{
 
     position:fixed;
@@ -326,13 +327,13 @@ nav.desktop a:hover::after{
 
     z-index:100;
 
-    background:rgba(90,70,64,.35);
+    background:rgba(0,0,0,.4);
 
     opacity:0;
 
     pointer-events:none;
 
-    transition:.3s;
+    transition:opacity .2s;
 
 }
 
@@ -354,15 +355,15 @@ nav.desktop a:hover::after{
 
     bottom:0;
 
-    width:290px;
+    width:18rem;
 
-    background:var(--crema);
+    background:white;
 
-    padding:25px;
+    padding:1.5rem;
 
     transform:translateX(100%);
 
-    transition:.3s;
+    transition:transform .3s ease;
 
 }
 
@@ -376,21 +377,23 @@ nav.desktop a:hover::after{
 
     display:block;
 
-    padding:13px;
+    padding:.75rem;
 
-    border-radius:10px;
+    border-radius:.375rem;
 
-    font-weight:600;
+    font-weight:500;
 
-    margin-bottom:5px;
+    color:rgba(45,45,45,.8);
+
+    margin-bottom:.25rem;
 
 }
 
 .mobile-panel a:hover{
 
-    background:var(--rosa-suave);
+    background:rgba(124,58,237,.1);
 
-    color:var(--rosa);
+    color:var(--violet);
 
 }
 
@@ -398,9 +401,9 @@ nav.desktop a:hover::after{
 
     position:absolute;
 
-    top:18px;
+    top:1rem;
 
-    right:18px;
+    right:1rem;
 
     background:none;
 
@@ -408,13 +411,15 @@ nav.desktop a:hover::after{
 
     cursor:pointer;
 
-    color:var(--marron);
+    padding:.5rem;
 
 }
 
 .close-btn svg{
 
-    width:25px;
+    width:1.5rem;
+
+    height:1.5rem;
 
 }
 
@@ -429,7 +434,7 @@ nav.desktop a:hover::after{
 
     overflow:hidden;
 
-    padding:80px 0 100px;
+    padding:3rem 0 4rem;
 
 }
 
@@ -440,6 +445,10 @@ nav.desktop a:hover::after{
     inset:0;
 
     z-index:-1;
+
+    opacity:.3;
+
+    pointer-events:none;
 
 }
 
@@ -455,29 +464,29 @@ nav.desktop a:hover::after{
 
 .blob-1{
 
-    width:300px;
+    width:18rem;
 
-    height:300px;
+    height:18rem;
 
-    background:rgba(241,213,219,.6);
+    background:rgba(124,58,237,.2);
 
-    left:-130px;
+    left:-5rem;
 
-    top:-100px;
+    top:-5rem;
 
 }
 
 .blob-2{
 
-    width:350px;
+    width:24rem;
 
-    height:350px;
+    height:24rem;
 
-    background:rgba(232,216,204,.55);
+    background:rgba(236,72,153,.2);
 
-    right:-150px;
+    right:-5rem;
 
-    bottom:-150px;
+    bottom:-5rem;
 
 }
 
@@ -485,18 +494,35 @@ nav.desktop a:hover::after{
 
     display:grid;
 
-    gap:50px;
+    gap:2.5rem;
 
     align-items:center;
 
 }
-
 
 @media(min-width:1024px){
 
     .hero-grid{
 
         grid-template-columns:1fr 1fr;
+
+    }
+
+    .hero-text{
+
+        order:1;
+
+    }
+
+    .hero-image{
+
+        order:2;
+
+    }
+
+    .hero{
+
+        padding:5rem 0 6rem;
 
     }
 
@@ -513,53 +539,75 @@ nav.desktop a:hover::after{
 
     align-items:center;
 
-    gap:8px;
+    gap:.5rem;
 
-    padding:8px 15px;
+    padding:.375rem .875rem;
 
-    border-radius:30px;
+    border-radius:9999px;
 
-    border:1px solid var(--rosa-claro);
+    border:1px solid rgba(124,58,237,.2);
 
-    background:white;
+    background:rgba(124,58,237,.1);
 
-    color:var(--rosa);
+    color:var(--violet);
 
-    font-size:.78rem;
+    font-size:.875rem;
 
-    font-weight:700;
+    font-weight:500;
 
-    margin-bottom:20px;
+    margin-bottom:1rem;
 
 }
 
 .badge svg{
 
-    width:16px;
+    width:1rem;
+
+    height:1rem;
 
 }
 
-.hero h1{
+h1{
 
-    color:var(--marron);
+    font-size:2.5rem;
+
+    line-height:1.1;
+
+    font-weight:800;
+
+    letter-spacing:-.025em;
 
 }
 
-.text-accent{
+@media(min-width:640px){
 
-    color:var(--rosa);
+    h1{
+
+        font-size:3rem;
+
+    }
+
+}
+
+@media(min-width:1024px){
+
+    h1{
+
+        font-size:3.75rem;
+
+    }
 
 }
 
 .hero p{
 
-    margin-top:22px;
+    margin-top:1.25rem;
 
-    font-size:1rem;
+    font-size:1.125rem;
 
-    color:var(--gris);
+    color:var(--muted-foreground);
 
-    max-width:570px;
+    max-width:36rem;
 
 }
 
@@ -570,13 +618,13 @@ nav.desktop a:hover::after{
 
 .btn-group{
 
-    margin-top:30px;
+    margin-top:2rem;
 
     display:flex;
 
     flex-wrap:wrap;
 
-    gap:13px;
+    gap:.75rem;
 
 }
 
@@ -588,35 +636,41 @@ nav.desktop a:hover::after{
 
     justify-content:center;
 
-    padding:13px 23px;
+    padding:.875rem 1.75rem;
 
-    border-radius:30px;
+    border-radius:var(--radius);
 
-    font-size:.85rem;
+    font-weight:600;
 
-    font-weight:700;
+    font-size:1rem;
 
-    transition:.3s;
+    transition:all .2s;
 
     cursor:pointer;
+
+    border:none;
 
 }
 
 .btn-primary{
 
-    background:var(--rosa);
+    background:linear-gradient(
+        135deg,
+        var(--violet),
+        var(--pink)
+    );
 
     color:white;
 
-    box-shadow:0 8px 20px rgba(216,167,177,.28);
+    box-shadow:0 10px 25px -5px rgba(124,58,237,.35);
 
 }
 
 .btn-primary:hover{
 
-    background:#C98F9C;
+    opacity:.9;
 
-    transform:translateY(-3px);
+    transform:translateY(-1px);
 
 }
 
@@ -624,64 +678,56 @@ nav.desktop a:hover::after{
 
     background:transparent;
 
-    border:1.5px solid var(--rosa);
+    border:2px solid var(--pink);
 
-    color:var(--rosa);
+    color:var(--pink);
 
 }
 
 .btn-outline:hover{
 
-    background:var(--rosa-suave);
+    background:var(--pink);
 
-    transform:translateY(-3px);
+    color:white;
 
 }
 
 
 /* =====================================================
-   IMAGEN HERO
+   HERO IMAGEN
 ===================================================== */
 
 .hero-img-wrap{
 
     position:relative;
 
-    padding:12px;
+    border-radius:1.5rem;
 
-    background:white;
+    overflow:hidden;
 
-    border-radius:25px;
-
-    box-shadow:var(--sombra);
-
-    transform:rotate(1deg);
-
-    transition:.4s;
-
-}
-
-.hero-img-wrap:hover{
-
-    transform:rotate(0deg) translateY(-5px);
+    box-shadow:0 25px 50px -12px rgba(0,0,0,.25);
 
 }
 
 .hero-img-wrap::before{
 
-    content:"";
+    content:'';
 
     position:absolute;
 
-    inset:-8px;
-
-    border:1px solid var(--dorado);
-
-    border-radius:28px;
-
-    opacity:.45;
+    inset:-1rem;
 
     z-index:-1;
+
+    border-radius:2rem;
+
+    background:linear-gradient(
+        135deg,
+        rgba(124,58,237,.3),
+        rgba(236,72,153,.3)
+    );
+
+    filter:blur(20px);
 
 }
 
@@ -693,7 +739,9 @@ nav.desktop a:hover::after{
 
     object-fit:cover;
 
-    border-radius:17px;
+    border-radius:1.5rem;
+
+    border:1px solid var(--border);
 
 }
 
@@ -704,7 +752,7 @@ nav.desktop a:hover::after{
 
 section{
 
-    padding:90px 0;
+    padding:5rem 0;
 
 }
 
@@ -712,23 +760,37 @@ section{
 
     text-align:center;
 
-    margin-bottom:50px;
+    margin-bottom:3rem;
 
 }
 
 .section-title h2{
 
-    color:var(--marron);
+    font-size:2rem;
+
+    font-weight:800;
+
+    letter-spacing:-.025em;
+
+}
+
+@media(min-width:640px){
+
+    .section-title h2{
+
+        font-size:2.5rem;
+
+    }
 
 }
 
 .section-title p{
 
-    margin-top:12px;
+    margin-top:.75rem;
 
-    color:var(--gris);
+    color:var(--muted-foreground);
 
-    max-width:600px;
+    max-width:42rem;
 
     margin-left:auto;
 
@@ -738,17 +800,16 @@ section{
 
 
 /* =====================================================
-   TARJETAS DESTACADAS
+   TARJETAS DE COLECCIONES
 ===================================================== */
 
 .cards-grid{
 
     display:grid;
 
-    gap:25px;
+    gap:1.5rem;
 
 }
-
 
 @media(min-width:640px){
 
@@ -759,7 +820,6 @@ section{
     }
 
 }
-
 
 @media(min-width:1024px){
 
@@ -775,23 +835,23 @@ section{
 
     background:white;
 
-    border:1px solid var(--borde);
+    border:1px solid rgba(229,231,235,.6);
 
-    border-radius:18px;
+    border-radius:var(--radius);
 
     overflow:hidden;
 
-    box-shadow:0 6px 20px rgba(90,70,64,.06);
+    box-shadow:0 1px 3px rgba(0,0,0,.05);
 
-    transition:.35s;
+    transition:box-shadow .3s,transform .3s;
 
 }
 
 .card:hover{
 
-    transform:translateY(-7px);
+    box-shadow:0 20px 25px -5px rgba(0,0,0,.1);
 
-    box-shadow:var(--sombra);
+    transform:translateY(-5px);
 
 }
 
@@ -801,27 +861,25 @@ section{
 
     overflow:hidden;
 
-    background:var(--rosa-suave);
-
 }
 
 .card-img img{
 
     width:100%;
 
-    height:300px;
+    height:280px;
 
     object-fit:contain;
 
-    background:#FAF6F3;
+    background:#F3F4F6;
 
-    transition:.5s;
+    transition:transform .5s;
 
 }
 
 .card:hover .card-img img{
 
-    transform:scale(1.04);
+    transform:scale(1.05);
 
 }
 
@@ -829,47 +887,47 @@ section{
 
     position:absolute;
 
-    left:15px;
+    left:.75rem;
 
-    top:15px;
+    top:.75rem;
 
-    background:white;
+    background:var(--pink);
 
-    color:var(--marron);
+    color:white;
 
-    padding:6px 12px;
+    padding:.25rem .75rem;
 
-    border-radius:20px;
+    border-radius:9999px;
 
-    font-size:.7rem;
+    font-size:.75rem;
 
     font-weight:700;
-
-    border:1px solid var(--borde);
 
 }
 
 .card-body{
 
-    padding:23px;
+    padding:1.25rem;
 
 }
 
 .card-body h3{
 
-    font-size:1.35rem;
+    font-size:1.25rem;
 
-    color:var(--marron);
+    font-weight:700;
 
-    margin-bottom:8px;
+    margin-bottom:.5rem;
 
 }
 
 .card-body p{
 
-    font-size:.87rem;
+    font-size:.95rem;
 
-    color:var(--gris);
+    color:var(--muted-foreground);
+
+    line-height:1.6;
 
 }
 
@@ -877,27 +935,31 @@ section{
 
     display:inline-block;
 
-    margin-top:16px;
+    margin-top:1rem;
 
-    color:var(--rosa);
+    color:var(--violet);
 
-    font-size:.8rem;
+    font-weight:600;
 
-    font-weight:700;
+    font-size:.9rem;
 
     cursor:pointer;
+
+    transition:.2s;
 
 }
 
 .card-link:hover{
 
-    color:var(--dorado);
+    color:var(--pink);
+
+    transform:translateX(3px);
 
 }
 
 
 /* =====================================================
-   GALERÍAS INTERNAS
+   GALERÍAS
 ===================================================== */
 
 .gallery-page{
@@ -906,9 +968,9 @@ section{
 
     min-height:100vh;
 
-    padding:70px 0 100px;
+    background:#FAFAFC;
 
-    background:var(--crema);
+    padding:4rem 0 6rem;
 
 }
 
@@ -926,7 +988,7 @@ section{
 
         opacity:0;
 
-        transform:translateY(15px);
+        transform:translateY(20px);
 
     }
 
@@ -944,23 +1006,27 @@ section{
 
     text-align:center;
 
-    max-width:700px;
-
-    margin:0 auto 45px;
+    margin-bottom:3rem;
 
 }
 
 .gallery-header h2{
 
-    margin-top:20px;
+    font-size:2.5rem;
+
+    font-weight:800;
+
+    margin-top:1.5rem;
 
 }
 
 .gallery-header p{
 
-    margin-top:12px;
+    color:var(--muted-foreground);
 
-    color:var(--gris);
+    max-width:600px;
+
+    margin:1rem auto 0;
 
 }
 
@@ -970,36 +1036,40 @@ section{
 
     align-items:center;
 
-    gap:8px;
+    gap:.5rem;
 
-    padding:10px 18px;
+    padding:.7rem 1.2rem;
 
-    border:1px solid var(--rosa);
+    border:1px solid var(--border);
 
-    border-radius:30px;
-
-    color:var(--rosa);
+    border-radius:999px;
 
     background:white;
 
-    font-weight:700;
+    color:var(--violet);
 
-    font-size:.82rem;
+    font-weight:600;
 
     cursor:pointer;
 
-    transition:.3s;
+    transition:.25s;
 
 }
 
 .back-btn:hover{
 
-    background:var(--rosa-suave);
+    background:var(--violet);
+
+    color:white;
+
+    transform:translateX(-3px);
 
 }
 
 
-/* GALERÍA */
+/* =====================================================
+   GRID DE IMÁGENES
+===================================================== */
 
 .gallery-grid{
 
@@ -1007,10 +1077,9 @@ section{
 
     grid-template-columns:1fr;
 
-    gap:22px;
+    gap:1.5rem;
 
 }
-
 
 @media(min-width:600px){
 
@@ -1021,7 +1090,6 @@ section{
     }
 
 }
-
 
 @media(min-width:1000px){
 
@@ -1035,15 +1103,21 @@ section{
 
 .gallery-item{
 
+    position:relative;
+
     background:white;
 
-    padding:10px;
+    padding:.65rem;
 
-    border:1px solid var(--borde);
+    border:1px solid var(--border);
 
-    border-radius:16px;
+    border-radius:1rem;
 
-    box-shadow:0 6px 20px rgba(90,70,64,.07);
+    box-shadow:0 5px 18px rgba(0,0,0,.06);
+
+    cursor:pointer;
+
+    overflow:hidden;
 
     transition:.35s;
 
@@ -1051,9 +1125,49 @@ section{
 
 .gallery-item:hover{
 
-    transform:translateY(-5px);
+    transform:translateY(-6px);
 
-    box-shadow:var(--sombra);
+    box-shadow:0 20px 30px rgba(0,0,0,.12);
+
+}
+
+.gallery-item::after{
+
+    content:'🔍';
+
+    position:absolute;
+
+    top:15px;
+
+    right:15px;
+
+    width:38px;
+
+    height:38px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(255,255,255,.9);
+
+    border-radius:50%;
+
+    opacity:0;
+
+    transform:scale(.7);
+
+    transition:.3s;
+
+}
+
+.gallery-item:hover::after{
+
+    opacity:1;
+
+    transform:scale(1);
 
 }
 
@@ -1065,23 +1179,216 @@ section{
 
     object-fit:cover;
 
-    border-radius:11px;
+    border-radius:.7rem;
 
-    background:#FAF6F3;
+    background:#F3F4F6;
+
+    transition:.4s;
+
+}
+
+.gallery-item:hover img{
+
+    transform:scale(1.02);
 
 }
 
 .gallery-caption{
 
-    padding:13px 8px 7px;
+    padding:.9rem .5rem .5rem;
 
     text-align:center;
 
-    font-family:'Playfair Display',serif;
+    font-weight:600;
 
-    font-size:1.05rem;
+    color:var(--dark);
 
-    color:var(--marron);
+}
+
+
+/* =====================================================
+   VISOR DE IMAGEN GRANDE
+===================================================== */
+
+.image-modal{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:1000;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:25px;
+
+    background:rgba(20,15,25,.88);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transition:opacity .3s,visibility .3s;
+
+}
+
+.image-modal.open{
+
+    opacity:1;
+
+    visibility:visible;
+
+    pointer-events:auto;
+
+}
+
+.modal-content{
+
+    position:relative;
+
+    max-width:950px;
+
+    width:100%;
+
+    max-height:90vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    animation:modalZoom .3s ease;
+
+}
+
+@keyframes modalZoom{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.85);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+.modal-content img{
+
+    max-width:100%;
+
+    max-height:82vh;
+
+    width:auto;
+
+    height:auto;
+
+    object-fit:contain;
+
+    border-radius:12px;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.4);
+
+}
+
+.modal-close{
+
+    position:absolute;
+
+    right:-10px;
+
+    top:-55px;
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:white;
+
+    color:var(--dark);
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.25s;
+
+}
+
+.modal-close:hover{
+
+    background:var(--pink);
+
+    color:white;
+
+    transform:rotate(90deg);
+
+}
+
+.modal-title{
+
+    position:absolute;
+
+    bottom:-45px;
+
+    left:0;
+
+    right:0;
+
+    text-align:center;
+
+    color:white;
+
+    font-weight:600;
+
+}
+
+@media(max-width:600px){
+
+    .image-modal{
+
+        padding:15px;
+
+    }
+
+    .modal-content img{
+
+        max-height:75vh;
+
+    }
+
+    .modal-close{
+
+        right:0;
+
+        top:-50px;
+
+    }
 
 }
 
@@ -1092,11 +1399,7 @@ section{
 
 .personalizados{
 
-    background:#F8EFEB;
-
-    border-top:1px solid var(--borde);
-
-    border-bottom:1px solid var(--borde);
+    background:rgba(243,244,246,.5);
 
 }
 
@@ -1104,12 +1407,11 @@ section{
 
     display:grid;
 
-    gap:50px;
+    gap:2.5rem;
 
     align-items:center;
 
 }
-
 
 @media(min-width:1024px){
 
@@ -1121,25 +1423,11 @@ section{
 
 }
 
-.personalizados h2{
-
-    color:var(--marron);
-
-}
-
-.personalizados-description{
-
-    margin-top:17px;
-
-    color:var(--gris);
-
-}
-
 .personalizados ul{
 
     list-style:none;
 
-    margin-top:25px;
+    margin-top:1.5rem;
 
 }
 
@@ -1149,23 +1437,23 @@ section{
 
     align-items:center;
 
-    gap:12px;
+    gap:.75rem;
 
-    margin-bottom:13px;
+    margin-bottom:.75rem;
 
-    color:var(--marron);
-
-    font-size:.9rem;
+    color:rgba(45,45,45,.85);
 
 }
 
 .icon-check{
 
-    width:27px;
+    width:1.5rem;
 
-    height:27px;
+    height:1.5rem;
 
     border-radius:50%;
+
+    flex-shrink:0;
 
     display:flex;
 
@@ -1173,17 +1461,15 @@ section{
 
     justify-content:center;
 
-    flex-shrink:0;
-
-    background:var(--rosa);
-
     color:white;
 
 }
 
 .icon-check svg{
 
-    width:13px;
+    width:.75rem;
+
+    height:.75rem;
 
 }
 
@@ -1196,49 +1482,51 @@ section{
 
     background:white;
 
-    border:1px solid var(--borde);
+    border:1px solid rgba(229,231,235,.6);
 
-    border-radius:22px;
+    border-radius:var(--radius);
 
     overflow:hidden;
 
-    box-shadow:var(--sombra);
+    box-shadow:0 20px 25px -5px rgba(0,0,0,.1);
 
 }
 
 .about-card-header{
 
-    padding:25px;
+    padding:1.5rem;
 
-    background:var(--rosa-suave);
-
-    border-bottom:1px solid var(--borde);
+    background:linear-gradient(
+        90deg,
+        rgba(124,58,237,.1),
+        rgba(236,72,153,.1)
+    );
 
 }
 
 .about-card-header h3{
 
-    font-size:1.7rem;
+    font-size:1.5rem;
+
+    font-weight:700;
 
 }
 
 .about-card-header p{
 
-    color:var(--gris);
+    color:var(--muted-foreground);
 
-    margin-top:4px;
-
-    font-size:.85rem;
+    margin-top:.25rem;
 
 }
 
 .about-card-body{
 
-    padding:20px;
+    padding:1.5rem;
 
     display:grid;
 
-    gap:15px;
+    gap:1rem;
 
 }
 
@@ -1260,7 +1548,7 @@ section{
 
     object-fit:cover;
 
-    border-radius:13px;
+    border-radius:.75rem;
 
 }
 
@@ -1268,9 +1556,9 @@ section{
 
     grid-column:1/-1;
 
-    font-size:.85rem;
+    font-size:.9rem;
 
-    color:var(--gris);
+    color:var(--muted-foreground);
 
 }
 
@@ -1281,11 +1569,11 @@ section{
 
 footer{
 
-    background:var(--marron);
+    background:var(--dark);
 
     color:white;
 
-    padding:65px 0 25px;
+    padding:3.5rem 0 1.5rem;
 
 }
 
@@ -1293,7 +1581,7 @@ footer{
 
     display:grid;
 
-    gap:40px;
+    gap:2.5rem;
 
 }
 
@@ -1301,7 +1589,17 @@ footer{
 
     .footer-grid{
 
-        grid-template-columns:2fr 1fr;
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(min-width:1024px){
+
+    .footer-grid{
+
+        grid-template-columns:2fr 1fr 1fr;
 
     }
 
@@ -1309,27 +1607,29 @@ footer{
 
 .footer-brand p{
 
-    margin-top:15px;
+    margin-top:1rem;
 
-    font-size:.85rem;
+    font-size:.9rem;
 
     color:rgba(255,255,255,.7);
 
-    max-width:350px;
+    max-width:20rem;
 
 }
 
 .footer-col h4{
 
-    font-size:.8rem;
+    font-size:.875rem;
+
+    font-weight:700;
 
     text-transform:uppercase;
 
-    letter-spacing:.08em;
+    letter-spacing:.05em;
 
-    color:var(--rosa-claro);
+    color:var(--pink);
 
-    margin-bottom:18px;
+    margin-bottom:1rem;
 
 }
 
@@ -1341,7 +1641,7 @@ footer{
 
 .footer-col li{
 
-    margin-bottom:13px;
+    margin-bottom:.75rem;
 
 }
 
@@ -1351,11 +1651,13 @@ footer{
 
     align-items:center;
 
-    gap:8px;
+    gap:.5rem;
 
-    font-size:.82rem;
+    font-size:.9rem;
 
-    color:rgba(255,255,255,.75);
+    color:rgba(255,255,255,.8);
+
+    transition:color .2s;
 
 }
 
@@ -1367,23 +1669,27 @@ footer{
 
 .footer-col svg{
 
-    width:17px;
+    width:1rem;
 
-    color:var(--rosa-claro);
+    height:1rem;
+
+    color:var(--violet);
+
+    flex-shrink:0;
 
 }
 
 .footer-bottom{
 
-    margin-top:45px;
+    margin-top:3rem;
 
-    padding-top:20px;
+    padding-top:1.5rem;
 
-    border-top:1px solid rgba(255,255,255,.12);
+    border-top:1px solid rgba(255,255,255,.1);
 
     text-align:center;
 
-    font-size:.7rem;
+    font-size:.75rem;
 
     color:rgba(255,255,255,.5);
 
@@ -1391,22 +1697,22 @@ footer{
 
 
 /* =====================================================
-   ANIMACIÓN
+   ANIMACIONES
 ===================================================== */
 
 .hero-text{
 
-    animation:aparecer .8s ease;
+    animation:fadeUp .7s ease;
 
 }
 
 .hero-image{
 
-    animation:aparecer 1s ease;
+    animation:fadeUp .9s ease;
 
 }
 
-@keyframes aparecer{
+@keyframes fadeUp{
 
     from{
 
@@ -1426,39 +1732,6 @@ footer{
 
 }
 
-
-/* =====================================================
-   MÓVIL
-===================================================== */
-
-@media(max-width:639px){
-
-    h1{
-
-        font-size:2.5rem;
-
-    }
-
-    h2{
-
-        font-size:2rem;
-
-    }
-
-    .hero{
-
-        padding:55px 0 70px;
-
-    }
-
-    section{
-
-        padding:70px 0;
-
-    }
-
-}
-
 </style>
 
 </head>
@@ -1473,9 +1746,9 @@ footer{
 
 <div class="container header-inner">
 
-<a href="#" class="logo" onclick="mostrarInicio()">
+<a href="#inicio" class="logo">
 
-<div class="logo-icon">
+<div class="logo-icon gradient-brand">
 
 <svg xmlns="http://www.w3.org/2000/svg"
 fill="none"
@@ -1489,15 +1762,19 @@ stroke-width="2">
 
 </div>
 
-<span>Arte <span style="color:var(--rosa);">& Dibujos</span></span>
+<span>
+
+Arte<span class="text-gradient">&Dibujos</span>
+
+</span>
 
 </a>
 
 <nav class="desktop">
 
-<a href="#" onclick="mostrarInicio()">Inicio</a>
+<a href="#inicio">Inicio</a>
 
-<a href="#coleccion">Colección</a>
+<a href="#coleccion">Colección de dibujos</a>
 
 <a href="#personalizados">Personalizados</a>
 
@@ -1538,6 +1815,7 @@ onclick="if(event.target===this)document.getElementById('mobileMenu').classList.
 <div class="mobile-panel">
 
 <button class="close-btn"
+aria-label="Cerrar menú"
 onclick="document.getElementById('mobileMenu').classList.remove('open')">
 
 <svg xmlns="http://www.w3.org/2000/svg"
@@ -1552,27 +1830,27 @@ stroke-width="2">
 
 </button>
 
-<div style="margin-top:55px;">
+<div style="margin-top:3rem;">
 
-<a href="#" onclick="mostrarInicio();cerrarMenu();">
-Inicio
-</a>
+<a href="#inicio"
+onclick="cerrarMenu()">
+Inicio </a>
 
-<a href="#coleccion" onclick="cerrarMenu();">
-Colección
-</a>
+<a href="#coleccion"
+onclick="cerrarMenu()">
+Colección de dibujos </a>
 
-<a href="#personalizados" onclick="cerrarMenu();">
-Personalizados
-</a>
+<a href="#personalizados"
+onclick="cerrarMenu()">
+Personalizados </a>
 
-<a href="#sobre-mi" onclick="cerrarMenu();">
-Sobre mí
-</a>
+<a href="#sobre-mi"
+onclick="cerrarMenu()">
+Sobre mí </a>
 
-<a href="#contacto" onclick="cerrarMenu();">
-Contacto
-</a>
+<a href="#contacto"
+onclick="cerrarMenu()">
+Contacto </a>
 
 </div>
 
@@ -1588,7 +1866,9 @@ Contacto
 
 <main>
 
-<!-- HERO -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero" id="inicio">
 
@@ -1624,7 +1904,7 @@ Ilustraciones hechas a mano
 
 Dibujos que cuentan
 
-<span class="text-accent">
+<span class="text-gradient">
 historias
 </span>
 
@@ -1641,13 +1921,15 @@ detalle y mucho amor por el arte.
 
 <div class="btn-group">
 
-<a href="#coleccion" class="btn btn-primary">
+<a href="#coleccion"
+class="btn btn-primary">
 
 Ver colección
 
 </a>
 
-<a href="#personalizados" class="btn btn-outline">
+<a href="#personalizados"
+class="btn btn-outline">
 
 Pedir personalizado
 
@@ -1663,7 +1945,9 @@ Pedir personalizado
 
 <img
 src="01_retrato_flores.png"
-alt="Ilustración principal de retrato artístico con flores">
+alt="Ilustración principal de retrato artístico con flores"
+width="900"
+height="675">
 
 </div>
 
@@ -1673,7 +1957,9 @@ alt="Ilustración principal de retrato artístico con flores">
 
 </section>
 
-<!-- COLECCIÓN -->
+<!-- =====================================================
+     COLECCIONES
+===================================================== -->
 
 <section id="coleccion">
 
@@ -1685,7 +1971,7 @@ alt="Ilustración principal de retrato artístico con flores">
 
 Colecciones
 
-<span class="text-accent">
+<span class="text-gradient">
 destacadas
 </span>
 
@@ -1710,7 +1996,8 @@ transformar ideas en arte.
 
 <img
 src="02_dibujo_blanco_y_negro.png"
-alt="Dibujos blanco y negro">
+alt="Dibujos blanco y negro"
+loading="lazy">
 
 <span class="card-badge">
 Clásico
@@ -1725,8 +2012,10 @@ Dibujos blanco y negro
 </h3>
 
 <p>
+
 Retratos, animales y paisajes realizados
 con lápiz y grafito. Elegancia en cada trazo.
+
 </p>
 
 <a class="card-link"
@@ -1748,7 +2037,8 @@ Explorar colección →
 
 <img
 src="03_dibujo_acuarela.png"
-alt="Dibujos en acuarela">
+alt="Dibujos en acuarela"
+loading="lazy">
 
 <span class="card-badge">
 Delicado
@@ -1763,8 +2053,10 @@ Dibujos en acuarela
 </h3>
 
 <p>
+
 Colores suaves y translúcidos que dan vida
 a flores, paisajes y escenas oníricas.
+
 </p>
 
 <a class="card-link"
@@ -1778,7 +2070,7 @@ Explorar colección →
 
 </article>
 
-<!-- COLOR -->
+<!-- A COLOR -->
 
 <article class="card">
 
@@ -1786,7 +2078,8 @@ Explorar colección →
 
 <img
 src="04_dibujo_a_color.png"
-alt="Dibujos a color">
+alt="Dibujos a color"
+loading="lazy">
 
 <span class="card-badge">
 Vibrante
@@ -1801,8 +2094,10 @@ Dibujos a color
 </h3>
 
 <p>
+
 Ilustraciones vibrantes con marcadores,
 lápices de colores y arte digital.
+
 </p>
 
 <a class="card-link"
@@ -1822,7 +2117,9 @@ Explorar colección →
 
 </section>
 
-<!-- PERSONALIZADOS -->
+<!-- =====================================================
+     PERSONALIZADOS
+===================================================== -->
 
 <section class="personalizados"
 id="personalizados">
@@ -1833,17 +2130,17 @@ id="personalizados">
 
 <div>
 
-<h2>
+<h2 style="font-size:2rem;font-weight:800;letter-spacing:-.025em;">
 
 ¿Quieres un dibujo
 
-<span class="text-accent">
+<span class="text-gradient">
 personalizado
 </span>?
 
 </h2>
 
-<p class="personalizados-description">
+<p style="margin-top:1rem;color:var(--muted-foreground);">
 
 Desde retratos de personas y mascotas hasta
 ilustraciones para regalos, decoración o proyectos
@@ -1856,7 +2153,7 @@ obra única hecha a mano.
 
 <li>
 
-<span class="icon-check">
+<span class="icon-check gradient-brand">
 
 ✓
 
@@ -1868,7 +2165,7 @@ Retratos personalizados
 
 <li>
 
-<span class="icon-check">
+<span class="icon-check gradient-brand">
 
 ✓
 
@@ -1880,7 +2177,7 @@ Ilustraciones de mascotas
 
 <li>
 
-<span class="icon-check">
+<span class="icon-check gradient-brand">
 
 ✓
 
@@ -1892,7 +2189,7 @@ Regalos originales
 
 <li>
 
-<span class="icon-check">
+<span class="icon-check gradient-brand">
 
 ✓
 
@@ -1938,11 +2235,13 @@ Artista visual apasionada por el dibujo y la ilustración.
 
 <img
 src="05_dibujo_a_lapiz.png"
-alt="Ejemplo de dibujo a lápiz">
+alt="Ejemplo de dibujo a lápiz"
+loading="lazy">
 
 <img
 src="03_dibujo_acuarela.png"
-alt="Ejemplo de acuarela">
+alt="Ejemplo de acuarela"
+loading="lazy">
 
 <p>
 
@@ -1970,16 +2269,14 @@ emociones y capturan momentos especiales.
      GALERÍA BLANCO Y NEGRO
 ===================================================== -->
 
-<section
-id="galeriaBlanco"
+<section id="galeriaBlanco"
 class="gallery-page">
 
 <div class="container">
 
 <div class="gallery-header">
 
-<button
-class="back-btn"
+<button class="back-btn"
 onclick="mostrarInicio()">
 
 ← Volver a colecciones
@@ -1990,7 +2287,7 @@ onclick="mostrarInicio()">
 
 Dibujos en
 
-<span class="text-accent">
+<span class="text-gradient">
 blanco y negro
 </span>
 
@@ -1998,8 +2295,8 @@ blanco y negro
 
 <p>
 
-Una colección de ilustraciones realizadas
-con lápiz, grafito y diferentes técnicas de sombreado.
+Una selección de dibujos realizados
+con lápiz, grafito y diferentes técnicas.
 
 </p>
 
@@ -2007,57 +2304,62 @@ con lápiz, grafito y diferentes técnicas de sombreado.
 
 <div class="gallery-grid">
 
-<div class="gallery-item">
+<div class="gallery-item"
+onclick="abrirImagen('blanco1.png','Dibujo en blanco y negro 1')">
 
 <img src="blanco1.png"
 alt="Dibujo blanco y negro 1">
 
 <div class="gallery-caption">
-Retrato en grafito
+Dibujo en grafito
 </div>
 
 </div>
 
-<div class="gallery-item">
+<div class="gallery-item"
+onclick="abrirImagen('blanco2.png','Dibujo en blanco y negro 2')">
 
 <img src="blanco2.png"
 alt="Dibujo blanco y negro 2">
 
 <div class="gallery-caption">
-Retrato artístico
+Retrato a lápiz
 </div>
 
 </div>
 
-<div class="gallery-item">
+<div class="gallery-item"
+onclick="abrirImagen('blanco3.png','Dibujo en blanco y negro 3')">
 
 <img src="blanco3.png"
 alt="Dibujo blanco y negro 3">
 
 <div class="gallery-caption">
-Naturaleza
+Paisaje en grafito
 </div>
 
 </div>
 
-<div class="gallery-item">
+<div class="gallery-item"
+onclick="abrirImagen('blanco4.png','Dibujo en blanco y negro 4')">
 
 <img src="blanco4.png"
 alt="Dibujo blanco y negro 4">
 
 <div class="gallery-caption">
-Detalles a lápiz
+Ilustración a lápiz
 </div>
 
 </div>
 
-<div class="gallery-item">
+<div class="gallery-item"
+onclick="abrirImagen('blanco5.png','Dibujo en blanco y negro 5')">
 
 <img src="blanco5.png"
 alt="Dibujo blanco y negro 5">
 
 <div class="gallery-caption">
-Ilustración clásica
+Naturaleza en grafito
 </div>
 
 </div>
@@ -2072,16 +2374,14 @@ Ilustración clásica
      GALERÍA ACUARELA
 ===================================================== -->
 
-<section
-id="galeriaAcuarela"
+<section id="galeriaAcuarela"
 class="gallery-page">
 
 <div class="container">
 
 <div class="gallery-header">
 
-<button
-class="back-btn"
+<button class="back-btn"
 onclick="mostrarInicio()">
 
 ← Volver a colecciones
@@ -2092,7 +2392,7 @@ onclick="mostrarInicio()">
 
 Dibujos en
 
-<span class="text-accent">
+<span class="text-gradient">
 acuarela
 </span>
 
@@ -2100,8 +2400,8 @@ acuarela
 
 <p>
 
-Colores suaves, transparencias y pinceladas
-que crean ilustraciones delicadas y llenas de vida.
+Colores suaves y pinceladas delicadas
+que dan vida a cada ilustración.
 
 </p>
 
@@ -2109,32 +2409,35 @@ que crean ilustraciones delicadas y llenas de vida.
 
 <div class="gallery-grid">
 
-<div class="gallery-item">
+<div class="gallery-item"
+onclick="abrirImagen('acuarela1.png','Acuarela 1')">
 
 <img src="acuarela1.png"
-alt="Acuarela 1">
+alt="Dibujo en acuarela 1">
 
 <div class="gallery-caption">
-Flores en acuarela
+Acuarela floral
 </div>
 
 </div>
 
-<div class="gallery-item">
+<div class="gallery-item"
+onclick="abrirImagen('acuarela2.png','Acuarela 2')">
 
 <img src="acuarela2.png"
-alt="Acuarela 2">
+alt="Dibujo en acuarela 2">
 
 <div class="gallery-caption">
-Paisaje
+Paisaje en acuarela
 </div>
 
 </div>
 
-<div class="gallery-item">
+<div class="gallery-item"
+onclick="abrirImagen('acuarela3.png','Acuarela 3')">
 
 <img src="acuarela3.png"
-alt="Acuarela 3">
+alt="Dibujo en acuarela 3">
 
 <div class="gallery-caption">
 Naturaleza
@@ -2142,24 +2445,26 @@ Naturaleza
 
 </div>
 
-<div class="gallery-item">
+<div class="gallery-item"
+onclick="abrirImagen('acuarela4.png','Acuarela 4')">
 
 <img src="acuarela4.png"
-alt="Acuarela 4">
+alt="Dibujo en acuarela 4">
 
 <div class="gallery-caption">
-Composición floral
+Flores en acuarela
 </div>
 
 </div>
 
-<div class="gallery-item">
+<div class="gallery-item"
+onclick="abrirImagen('acuarela5.png','Acuarela 5')">
 
 <img src="acuarela5.png"
-alt="Acuarela 5">
+alt="Dibujo en acuarela 5">
 
 <div class="gallery-caption">
-Ilustración delicada
+Ilustración artística
 </div>
 
 </div>
@@ -2174,16 +2479,14 @@ Ilustración delicada
      GALERÍA A COLOR
 ===================================================== -->
 
-<section
-id="galeriaColor"
+<section id="galeriaColor"
 class="gallery-page">
 
 <div class="container">
 
 <div class="gallery-header">
 
-<button
-class="back-btn"
+<button class="back-btn"
 onclick="mostrarInicio()">
 
 ← Volver a colecciones
@@ -2194,7 +2497,7 @@ onclick="mostrarInicio()">
 
 Dibujos
 
-<span class="text-accent">
+<span class="text-gradient">
 a color
 </span>
 
@@ -2202,8 +2505,8 @@ a color
 
 <p>
 
-Ilustraciones llenas de color realizadas
-con lápices, marcadores y diferentes técnicas.
+Ilustraciones realizadas con lápices de colores
+y diferentes técnicas artísticas.
 
 </p>
 
@@ -2211,40 +2514,44 @@ con lápices, marcadores y diferentes técnicas.
 
 <div class="gallery-grid">
 
-<div class="gallery-item">
+<div class="gallery-item"
+onclick="abrirImagen('color1.png','Dibujo a color 1')">
 
 <img src="color1.png"
 alt="Dibujo a color 1">
 
 <div class="gallery-caption">
-Ilustración colorida
+Retrato a color
 </div>
 
 </div>
 
-<div class="gallery-item">
+<div class="gallery-item"
+onclick="abrirImagen('color2.png','Dibujo a color 2')">
 
 <img src="color2.png"
 alt="Dibujo a color 2">
 
 <div class="gallery-caption">
-Flores a color
+Ilustración floral
 </div>
 
 </div>
 
-<div class="gallery-item">
+<div class="gallery-item"
+onclick="abrirImagen('color3.png','Dibujo a color 3')">
 
 <img src="color3.png"
 alt="Dibujo a color 3">
 
 <div class="gallery-caption">
-Personaje ilustrado
+Animal a color
 </div>
 
 </div>
 
-<div class="gallery-item">
+<div class="gallery-item"
+onclick="abrirImagen('color4.png','Dibujo a color 4')">
 
 <img src="color4.png"
 alt="Dibujo a color 4">
@@ -2255,13 +2562,14 @@ Ilustración vibrante
 
 </div>
 
-<div class="gallery-item">
+<div class="gallery-item"
+onclick="abrirImagen('color5.png','Dibujo a color 5')">
 
 <img src="color5.png"
 alt="Dibujo a color 5">
 
 <div class="gallery-caption">
-Arte a color
+Lápices de colores
 </div>
 
 </div>
@@ -2271,6 +2579,36 @@ Arte a color
 </div>
 
 </section>
+
+<!-- =====================================================
+     VISOR DE IMÁGENES
+===================================================== -->
+
+<div id="imageModal"
+class="image-modal"
+onclick="cerrarImagen(event)">
+
+<div class="modal-content">
+
+<button class="modal-close"
+onclick="cerrarImagen()">
+
+×
+
+</button>
+
+<img id="modalImage"
+src=""
+alt="">
+
+<div id="modalTitle"
+class="modal-title">
+
+</div>
+
+</div>
+
+</div>
 
 <!-- =====================================================
      FOOTER
@@ -2284,12 +2622,11 @@ Arte a color
 
 <div class="footer-brand">
 
-<a href="#"
+<a href="#inicio"
 class="logo"
-style="color:white;"
-onclick="mostrarInicio()">
+style="color:white;">
 
-<div class="logo-icon">
+<div class="logo-icon gradient-brand">
 
 <svg xmlns="http://www.w3.org/2000/svg"
 fill="none"
@@ -2307,9 +2644,9 @@ stroke-width="2">
 
 Arte
 
-<span style="color:var(--rosa-claro);">
+<span style="color:var(--pink);">
 
-& Dibujos
+&Dibujos
 
 </span>
 
@@ -2392,12 +2729,8 @@ Todos los derechos reservados.
 
 function abrirGaleria(id){
 
-    /* Ocultar página principal */
-
     document.getElementById("paginaPrincipal").style.display="none";
 
-
-    /* Ocultar todas las galerías */
 
     document.querySelectorAll(".gallery-page").forEach(function(galeria){
 
@@ -2406,12 +2739,8 @@ function abrirGaleria(id){
     });
 
 
-    /* Mostrar la galería seleccionada */
-
     document.getElementById(id).classList.add("active");
 
-
-    /* Subir al principio */
 
     window.scrollTo({
 
@@ -2424,8 +2753,9 @@ function abrirGaleria(id){
 }
 
 
+
 /* =====================================================
-   VOLVER AL INICIO
+   VOLVER A LA PÁGINA PRINCIPAL
 ===================================================== */
 
 function mostrarInicio(){
@@ -2440,6 +2770,9 @@ function mostrarInicio(){
     });
 
 
+    cerrarImagen();
+
+
     window.scrollTo({
 
         top:0,
@@ -2451,8 +2784,83 @@ function mostrarInicio(){
 }
 
 
+
 /* =====================================================
-   CERRAR MENÚ MÓVIL
+   ABRIR IMAGEN GRANDE
+===================================================== */
+
+function abrirImagen(imagen,titulo){
+
+    const modal=document.getElementById("imageModal");
+
+    const modalImage=document.getElementById("modalImage");
+
+    const modalTitle=document.getElementById("modalTitle");
+
+
+    modalImage.src=imagen;
+
+    modalImage.alt=titulo;
+
+    modalTitle.textContent=titulo;
+
+
+    modal.classList.add("open");
+
+
+    document.body.style.overflow="hidden";
+
+}
+
+
+
+/* =====================================================
+   CERRAR IMAGEN
+===================================================== */
+
+function cerrarImagen(event){
+
+    if(event && event.target !== document.getElementById("imageModal")){
+
+        return;
+
+    }
+
+
+    const modal=document.getElementById("imageModal");
+
+
+    modal.classList.remove("open");
+
+
+    document.body.style.overflow="";
+
+}
+
+
+
+/* =====================================================
+   CERRAR CON ESC
+===================================================== */
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key==="Escape"){
+
+        const modal=document.getElementById("imageModal");
+
+        modal.classList.remove("open");
+
+        document.body.style.overflow="";
+
+    }
+
+});
+
+
+
+/* =====================================================
+   CERRAR MENÚ
 ===================================================== */
 
 function cerrarMenu(){
@@ -2466,3 +2874,4 @@ function cerrarMenu(){
 </body>
 
 </html>
+
