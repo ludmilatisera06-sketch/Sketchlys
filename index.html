@@ -1,8 +1,8 @@
 <!DOCTYPE html>
+
 <html lang="es">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -15,14 +15,1166 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
+<style>
 
-<link rel="stylesheet" href="estilos.css">
+/* =====================================================
+   COLORES
+===================================================== */
+
+:root {
+    --crema: #FFF9F5;
+    --rosa: #D8A7B1;
+    --rosa-claro: #F1D5DB;
+    --rosa-suave: #FBECEF;
+
+    --marron: #5A4640;
+    --gris: #766B68;
+
+    --beige: #E8D8CC;
+    --dorado: #C9A66B;
+
+    --blanco: #FFFFFF;
+    --borde: #EADBD5;
+
+    --sombra: 0 15px 40px rgba(90,70,64,.10);
+}
+
+/* =====================================================
+   GENERAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--crema);
+    color: var(--marron);
+    line-height: 1.7;
+}
+
+body.modal-abierto {
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* =====================================================
+   CONTENEDOR
+===================================================== */
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* =====================================================
+   TIPOGRAFÍA
+===================================================== */
+
+h1,
+h2,
+h3,
+.logo {
+    font-family: 'Playfair Display', serif;
+}
+
+h1 {
+    font-size: 3.3rem;
+    line-height: 1.15;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 2.4rem;
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+h3 {
+    font-weight: 600;
+}
+
+.text-accent {
+    color: var(--rosa);
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,249,245,.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(216,167,177,.25);
+}
+
+.header-inner {
+    height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+
+.logo-icon {
+    width: 43px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--rosa);
+    color: white;
+}
+
+.logo-icon svg {
+    width: 22px;
+}
+
+/* =====================================================
+   NAV
+===================================================== */
+
+nav.desktop {
+    display: none;
+}
+
+nav.desktop a {
+    position: relative;
+    padding: 8px 12px;
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--marron);
+    transition: .3s;
+}
+
+nav.desktop a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--rosa);
+    transform: translateX(-50%);
+    transition: .3s;
+}
+
+nav.desktop a:hover {
+    color: var(--rosa);
+}
+
+nav.desktop a:hover::after {
+    width: 60%;
+}
+
+@media (min-width: 768px) {
+    nav.desktop {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .menu-btn {
+        display: none;
+    }
+}
+
+/* =====================================================
+   MENÚ MÓVIL
+===================================================== */
+
+.menu-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--marron);
+}
+
+.menu-btn svg {
+    width: 25px;
+}
+
+.mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(90,70,64,.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s;
+}
+
+.mobile-menu.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobile-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 290px;
+    background: var(--crema);
+    padding: 25px;
+    transform: translateX(100%);
+    transition: .3s;
+}
+
+.mobile-menu.open .mobile-panel {
+    transform: translateX(0);
+}
+
+.mobile-panel a {
+    display: block;
+    padding: 13px;
+    border-radius: 10px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.mobile-panel a:hover {
+    background: var(--rosa-suave);
+    color: var(--rosa);
+}
+
+.close-btn {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--marron);
+}
+
+.close-btn svg {
+    width: 25px;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 80px 0 100px;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+}
+
+.blob-1 {
+    width: 300px;
+    height: 300px;
+    background: rgba(241,213,219,.6);
+    left: -130px;
+    top: -100px;
+}
+
+.blob-2 {
+    width: 350px;
+    height: 350px;
+    background: rgba(232,216,204,.55);
+    right: -150px;
+    bottom: -150px;
+}
+
+.hero-grid {
+    display: grid;
+    gap: 50px;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .hero-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* =====================================================
+   HERO TEXTO
+===================================================== */
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border-radius: 30px;
+    border: 1px solid var(--rosa-claro);
+    background: white;
+    color: var(--rosa);
+    font-size: .78rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.badge svg {
+    width: 16px;
+}
+
+.hero h1 {
+    color: var(--marron);
+}
+
+.hero p {
+    margin-top: 22px;
+    font-size: 1rem;
+    color: var(--gris);
+    max-width: 570px;
+}
+
+/* =====================================================
+   BOTONES
+===================================================== */
+
+.btn-group {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 23px;
+    border-radius: 30px;
+    font-size: .85rem;
+    font-weight: 700;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--rosa);
+    color: white;
+    box-shadow: 0 8px 20px rgba(216,167,177,.28);
+}
+
+.btn-primary:hover {
+    background: #C98F9C;
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1.5px solid var(--rosa);
+    color: var(--rosa);
+}
+
+.btn-outline:hover {
+    background: var(--rosa-suave);
+    transform: translateY(-3px);
+}
+
+/* =====================================================
+   IMAGEN HERO
+===================================================== */
+
+.hero-img-wrap {
+    position: relative;
+    padding: 12px;
+    background: white;
+    border-radius: 25px;
+    box-shadow: var(--sombra);
+    transform: rotate(1deg);
+    transition: .4s;
+}
+
+.hero-img-wrap:hover {
+    transform: rotate(0deg) translateY(-5px);
+}
+
+.hero-img-wrap::before {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border: 1px solid var(--dorado);
+    border-radius: 28px;
+    opacity: .45;
+    z-index: -1;
+}
+
+.hero-img-wrap img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 17px;
+}
+
+/* =====================================================
+   SECCIONES
+===================================================== */
+
+section {
+    padding: 90px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    color: var(--marron);
+}
+
+.section-title p {
+    margin-top: 12px;
+    color: var(--gris);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =====================================================
+   TARJETAS
+===================================================== */
+
+.cards-grid {
+    display: grid;
+    gap: 25px;
+}
+
+@media (min-width: 640px) {
+    .cards-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .cards-grid {
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+.card {
+    background: white;
+    border: 1px solid var(--borde);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(90,70,64,.06);
+    transition: .4s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--sombra);
+}
+
+.card-img {
+    position: relative;
+    overflow: hidden;
+    background: var(--rosa-suave);
+}
+
+.card-img img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    background: #FAF6F3;
+    transition: .6s;
+}
+
+.card:hover .card-img img {
+    transform: scale(1.07);
+}
+
+.card-badge {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    background: white;
+    color: var(--marron);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: .7rem;
+    font-weight: 700;
+    border: 1px solid var(--borde);
+}
+
+.card-body {
+    padding: 23px;
+}
+
+.card-body h3 {
+    font-size: 1.35rem;
+    color: var(--marron);
+    margin-bottom: 8px;
+}
+
+.card-body p {
+    font-size: .87rem;
+    color: var(--gris);
+}
+
+.card-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: var(--rosa);
+    font-size: .8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.card-link:hover {
+    color: var(--dorado);
+    transform: translateX(5px);
+}
+
+/* =====================================================
+   GALERÍAS
+===================================================== */
+
+.gallery-page {
+    display: none;
+    min-height: 100vh;
+    padding: 70px 0 100px;
+    background: var(--crema);
+}
+
+.gallery-page.active {
+    display: block;
+    animation: galleryAppear .5s ease;
+}
+
+@keyframes galleryAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gallery-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 45px;
+}
+
+.gallery-header h2 {
+    margin-top: 20px;
+}
+
+.gallery-header p {
+    margin-top: 12px;
+    color: var(--gris);
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border: 1px solid var(--rosa);
+    border-radius: 30px;
+    color: var(--rosa);
+    background: white;
+    font-weight: 700;
+    font-size: .82rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.back-btn:hover {
+    background: var(--rosa-suave);
+    transform: translateX(-4px);
+}
+
+/* =====================================================
+   GALERÍA ESTILO PORTFOLIO
+===================================================== */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+}
+
+@media (min-width: 600px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media (min-width: 1000px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+.gallery-item {
+    position: relative;
+    background: white;
+    padding: 10px;
+    border: 1px solid var(--borde);
+    border-radius: 18px;
+    box-shadow: 0 6px 20px rgba(90,70,64,.07);
+    transition: .4s;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.gallery-item:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--sombra);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #FAF6F3;
+    transition: .5s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.04);
+}
+
+.gallery-item::after {
+    content: "Ver dibujo";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(.8);
+    background: rgba(90,70,64,.85);
+    color: white;
+    padding: 9px 18px;
+    border-radius: 25px;
+    font-size: .75rem;
+    font-weight: 600;
+    opacity: 0;
+    transition: .3s;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+    transform: translate(-50%,-50%) scale(1);
+}
+
+.gallery-caption {
+    padding: 13px 8px 7px;
+    text-align: center;
+    font-family: 'Playfair Display',serif;
+    font-size: 1.05rem;
+    color: var(--marron);
+}
+
+/* =====================================================
+   VISOR GRANDE
+===================================================== */
+
+.image-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    background: rgba(55,40,40,.88);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: .3s;
+}
+
+.image-modal.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 950px;
+    max-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content img {
+    max-width: 100%;
+    max-height: 82vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 30px 70px rgba(0,0,0,.4);
+    animation: zoomImage .35s ease;
+}
+
+@keyframes zoomImage {
+    from {
+        transform: scale(.85);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-close {
+    position: absolute;
+    right: -20px;
+    top: -55px;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: white;
+    color: var(--marron);
+    font-size: 25px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.modal-close:hover {
+    background: var(--rosa);
+    color: white;
+    transform: rotate(90deg);
+}
+
+.modal-title {
+    position: absolute;
+    bottom: -45px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    font-family: 'Playfair Display',serif;
+    font-size: 1.1rem;
+}
+
+/* =====================================================
+   MI PROCESO
+===================================================== */
+
+.proceso {
+    background: white;
+    border-top: 1px solid var(--borde);
+    border-bottom: 1px solid var(--borde);
+}
+
+.proceso-grid {
+    display: grid;
+    gap: 25px;
+}
+
+@media (min-width: 768px) {
+    .proceso-grid {
+        grid-template-columns: repeat(4,1fr);
+    }
+}
+
+.proceso-card {
+    text-align: center;
+    padding: 25px 18px;
+    border: 1px solid var(--borde);
+    border-radius: 18px;
+    background: var(--crema);
+    transition: .35s;
+}
+
+.proceso-card:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--sombra);
+}
+
+.proceso-numero {
+    width: 45px;
+    height: 45px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: var(--rosa);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display',serif;
+    font-size: 1.2rem;
+}
+
+.proceso-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.proceso-card p {
+    font-size: .82rem;
+    color: var(--gris);
+}
+
+/* =====================================================
+   PERSONALIZADOS
+===================================================== */
+
+.personalizados {
+    background: #F8EFEB;
+    border-top: 1px solid var(--borde);
+    border-bottom: 1px solid var(--borde);
+}
+
+.personalizados-grid {
+    display: grid;
+    gap: 50px;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .personalizados-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.personalizados h2 {
+    color: var(--marron);
+}
+
+.personalizados-description {
+    margin-top: 17px;
+    color: var(--gris);
+}
+
+.personalizados ul {
+    list-style: none;
+    margin-top: 25px;
+}
+
+.personalizados li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 13px;
+    color: var(--marron);
+    font-size: .9rem;
+}
+
+.icon-check {
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: var(--rosa);
+    color: white;
+}
+
+/* =====================================================
+   SOBRE MÍ
+===================================================== */
+
+.about-card {
+    background: white;
+    border: 1px solid var(--borde);
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+}
+
+.about-card-header {
+    padding: 25px;
+    background: var(--rosa-suave);
+    border-bottom: 1px solid var(--borde);
+}
+
+.about-card-header h3 {
+    font-size: 1.7rem;
+}
+
+.about-card-header p {
+    color: var(--gris);
+    margin-top: 4px;
+    font-size: .85rem;
+}
+
+.about-card-body {
+    padding: 20px;
+    display: grid;
+    gap: 15px;
+}
+
+@media (min-width: 640px) {
+    .about-card-body {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.about-card-body img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 13px;
+    transition: .4s;
+}
+
+.about-card-body img:hover {
+    transform: scale(1.03);
+}
+
+.about-card-body p {
+    grid-column: 1 / -1;
+    font-size: .85rem;
+    color: var(--gris);
+}
+
+/* =====================================================
+   DECORACIÓN
+===================================================== */
+
+.decoracion {
+    text-align: center;
+    color: var(--dorado);
+    font-size: 1.5rem;
+    letter-spacing: 10px;
+    margin-bottom: 25px;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    background: var(--marron);
+    color: white;
+    padding: 65px 0 25px;
+}
+
+.footer-grid {
+    display: grid;
+    gap: 40px;
+}
+
+@media (min-width: 640px) {
+    .footer-grid {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+.footer-brand p {
+    margin-top: 15px;
+    font-size: .85rem;
+    color: rgba(255,255,255,.7);
+    max-width: 350px;
+}
+
+.footer-col h4 {
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--rosa-claro);
+    margin-bottom: 18px;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col li {
+    margin-bottom: 13px;
+}
+
+.footer-col a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: .82rem;
+    color: rgba(255,255,255,.75);
+    transition: .3s;
+}
+
+.footer-col a:hover {
+    color: white;
+    transform: translateX(4px);
+}
+
+.footer-bottom {
+    margin-top: 45px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,.12);
+    text-align: center;
+    font-size: .7rem;
+    color: rgba(255,255,255,.5);
+}
+
+/* =====================================================
+   ANIMACIONES AL HACER SCROLL
+===================================================== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-text {
+    animation: aparecer .8s ease;
+}
+
+.hero-image {
+    animation: aparecer 1s ease;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =====================================================
+   BOTÓN VOLVER ARRIBA
+===================================================== */
+
+.top-btn {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 90;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: var(--rosa);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(90,70,64,.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+}
+
+.top-btn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.top-btn:hover {
+    background: var(--dorado);
+    transform: translateY(-4px);
+}
+
+/* =====================================================
+   MÓVIL
+===================================================== */
+
+@media (max-width: 639px) {
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .hero {
+        padding: 55px 0 70px;
+    }
+
+    section {
+        padding: 70px 0;
+    }
+
+    .gallery-item img {
+        height: 300px;
+    }
+
+    .modal-close {
+        right: 0;
+        top: -50px;
+    }
+}
+
+/* =====================================================
+   REDUCIR ANIMACIONES
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+</style>
 
 </head>
 
-
 <body>
-
 
 <!-- =====================================================
      HEADER
@@ -32,7 +1184,7 @@
 
 <div class="container header-inner">
 
-<a href="#" class="logo" onclick="mostrarInicio()">
+<a href="#inicio" class="logo" onclick="mostrarInicio()">
 
 <div class="logo-icon">
 
@@ -54,10 +1206,9 @@ Arte <span style="color:var(--rosa);">& Dibujos</span>
 
 </a>
 
-
 <nav class="desktop">
 
-<a href="#" onclick="mostrarInicio()">Inicio</a>
+<a href="#inicio" onclick="mostrarInicio()">Inicio</a>
 
 <a href="#coleccion">Colección</a>
 
@@ -70,7 +1221,6 @@ Arte <span style="color:var(--rosa);">& Dibujos</span>
 <a href="#contacto">Contacto</a>
 
 </nav>
-
 
 <button class="menu-btn"
 aria-label="Abrir menú"
@@ -91,8 +1241,6 @@ stroke-width="2">
 </div>
 
 </header>
-
-
 
 <!-- =====================================================
      MENÚ MÓVIL
@@ -119,10 +1267,9 @@ stroke-width="2">
 
 </button>
 
-
 <div style="margin-top:55px;">
 
-<a href="#" onclick="mostrarInicio();cerrarMenu();">
+<a href="#inicio" onclick="mostrarInicio();cerrarMenu();">
 Inicio
 </a>
 
@@ -152,8 +1299,6 @@ Contacto
 
 </div>
 
-
-
 <!-- =====================================================
      PÁGINA PRINCIPAL
 ===================================================== -->
@@ -161,7 +1306,6 @@ Contacto
 <div id="paginaPrincipal">
 
 <main>
-
 
 <!-- =====================================================
      HERO
@@ -177,9 +1321,7 @@ Contacto
 
 </div>
 
-
 <div class="container hero-grid">
-
 
 <div class="hero-text">
 
@@ -199,7 +1341,6 @@ Ilustraciones hechas a mano
 
 </div>
 
-
 <h1>
 
 Dibujos que cuentan
@@ -210,7 +1351,6 @@ historias
 
 </h1>
 
-
 <p>
 
 Explora una colección única de ilustraciones
@@ -219,7 +1359,6 @@ Cada pieza está creada con dedicación,
 detalle y mucho amor por el arte.
 
 </p>
-
 
 <div class="btn-group">
 
@@ -241,26 +1380,22 @@ Pedir personalizado
 
 </div>
 
-
-
 <div class="hero-image">
 
 <div class="hero-img-wrap">
 
 <img
 src="01_retrato_flores.png"
-alt="Ilustración principal de retrato artístico con flores">
+alt="Ilustración principal de retrato artístico con flores"
+onerror="this.style.display='none';">
 
 </div>
 
 </div>
-
 
 </div>
 
 </section>
-
-
 
 <!-- =====================================================
      COLECCIONES
@@ -270,11 +1405,9 @@ alt="Ilustración principal de retrato artístico con flores">
 
 <div class="container reveal">
 
-
 <div class="decoracion">
 ✦ · ✧ · ✦
 </div>
-
 
 <div class="section-title">
 
@@ -297,9 +1430,7 @@ transformar ideas en arte.
 
 </div>
 
-
 <div class="cards-grid">
-
 
 <!-- BLANCO Y NEGRO -->
 
@@ -309,14 +1440,14 @@ transformar ideas en arte.
 
 <img
 src="02_dibujo_blanco_y_negro.png"
-alt="Dibujos blanco y negro">
+alt="Dibujos blanco y negro"
+onerror="this.style.display='none';">
 
 <span class="card-badge">
 Clásico
 </span>
 
 </div>
-
 
 <div class="card-body">
 
@@ -331,7 +1462,6 @@ con lápiz y grafito. Elegancia en cada trazo.
 
 </p>
 
-
 <a class="card-link"
 onclick="abrirGaleria('galeriaBlanco')">
 
@@ -343,8 +1473,6 @@ Explorar colección →
 
 </article>
 
-
-
 <!-- ACUARELA -->
 
 <article class="card">
@@ -353,14 +1481,14 @@ Explorar colección →
 
 <img
 src="03_dibujo_acuarela.png"
-alt="Dibujos en acuarela">
+alt="Dibujos en acuarela"
+onerror="this.style.display='none';">
 
 <span class="card-badge">
 Delicado
 </span>
 
 </div>
-
 
 <div class="card-body">
 
@@ -375,7 +1503,6 @@ a flores, paisajes y escenas oníricas.
 
 </p>
 
-
 <a class="card-link"
 onclick="abrirGaleria('galeriaAcuarela')">
 
@@ -387,8 +1514,6 @@ Explorar colección →
 
 </article>
 
-
-
 <!-- A COLOR -->
 
 <article class="card">
@@ -397,14 +1522,14 @@ Explorar colección →
 
 <img
 src="04_dibujo_a_color.png"
-alt="Dibujos a color">
+alt="Dibujos a color"
+onerror="this.style.display='none';">
 
 <span class="card-badge">
 Vibrante
 </span>
 
 </div>
-
 
 <div class="card-body">
 
@@ -419,7 +1544,6 @@ de colores y diferentes técnicas.
 
 </p>
 
-
 <a class="card-link"
 onclick="abrirGaleria('galeriaColor')">
 
@@ -431,14 +1555,11 @@ Explorar colección →
 
 </article>
 
-
 </div>
 
 </div>
 
 </section>
-
-
 
 <!-- =====================================================
      MI PROCESO
@@ -448,11 +1569,9 @@ Explorar colección →
 
 <div class="container reveal">
 
-
 <div class="decoracion">
 ✦ · ✧ · ✦
 </div>
-
 
 <div class="section-title">
 
@@ -475,9 +1594,7 @@ y se transforma poco a poco en una obra.
 
 </div>
 
-
 <div class="proceso-grid">
-
 
 <div class="proceso-card">
 
@@ -496,7 +1613,6 @@ y defino la composición del dibujo.
 
 </div>
 
-
 <div class="proceso-card">
 
 <div class="proceso-numero">
@@ -513,7 +1629,6 @@ detalles para darle personalidad.
 </p>
 
 </div>
-
 
 <div class="proceso-card">
 
@@ -532,7 +1647,6 @@ mejor representan la idea.
 
 </div>
 
-
 <div class="proceso-card">
 
 <div class="proceso-numero">
@@ -550,14 +1664,11 @@ en una pieza única.
 
 </div>
 
-
 </div>
 
 </div>
 
 </section>
-
-
 
 <!-- =====================================================
      PERSONALIZADOS
@@ -567,7 +1678,6 @@ en una pieza única.
 id="personalizados">
 
 <div class="container personalizados-grid reveal">
-
 
 <div>
 
@@ -581,7 +1691,6 @@ personalizado
 
 </h2>
 
-
 <p class="personalizados-description">
 
 Desde retratos de personas y mascotas hasta
@@ -590,7 +1699,6 @@ especiales. Cuéntame tu idea y la convierto en una
 obra única hecha a mano.
 
 </p>
-
 
 <ul>
 
@@ -604,7 +1712,6 @@ Retratos personalizados
 
 </li>
 
-
 <li>
 
 <span class="icon-check">
@@ -615,7 +1722,6 @@ Ilustraciones de mascotas
 
 </li>
 
-
 <li>
 
 <span class="icon-check">
@@ -625,7 +1731,6 @@ Ilustraciones de mascotas
 Regalos originales
 
 </li>
-
 
 <li>
 
@@ -639,7 +1744,6 @@ Arte decorativo
 
 </ul>
 
-
 <div class="btn-group">
 
 <a href="#contacto"
@@ -652,8 +1756,6 @@ Pedir personalizado
 </div>
 
 </div>
-
-
 
 <!-- =====================================================
      SOBRE MÍ
@@ -674,18 +1776,17 @@ Una pequeña parte detrás de cada dibujo.
 
 </div>
 
-
 <div class="about-card-body">
 
 <img
 src="05_dibujo_a_lapiz.png"
-alt="Ejemplo de dibujo a lápiz">
-
+alt="Ejemplo de dibujo a lápiz"
+onerror="this.style.display='none';">
 
 <img
 src="03_dibujo_acuarela.png"
-alt="Ejemplo de acuarela">
-
+alt="Ejemplo de acuarela"
+onerror="this.style.display='none';">
 
 <p>
 
@@ -700,17 +1801,13 @@ hechas con dedicación y detalle.
 
 </div>
 
-
 </div>
 
 </section>
 
-
 </main>
 
 </div>
-
-
 
 <!-- =====================================================
      GALERÍA BLANCO Y NEGRO
@@ -721,7 +1818,6 @@ class="gallery-page">
 
 <div class="container">
 
-
 <div class="gallery-header">
 
 <button class="back-btn"
@@ -730,7 +1826,6 @@ onclick="mostrarInicio()">
 ← Volver a colecciones
 
 </button>
-
 
 <h2>
 
@@ -742,7 +1837,6 @@ blanco y negro
 
 </h2>
 
-
 <p>
 
 Una colección de dibujos realizados
@@ -752,9 +1846,7 @@ con lápiz, grafito y diferentes técnicas.
 
 </div>
 
-
 <div class="gallery-grid">
-
 
 <div class="gallery-item"
 onclick="abrirImagen('blanco1.png','Retrato en grafito')">
@@ -768,7 +1860,6 @@ Retrato en grafito
 
 </div>
 
-
 <div class="gallery-item"
 onclick="abrirImagen('blanco2.png','Retrato artístico')">
 
@@ -780,7 +1871,6 @@ Retrato artístico
 </div>
 
 </div>
-
 
 <div class="gallery-item"
 onclick="abrirImagen('blanco3.png','Naturaleza')">
@@ -794,7 +1884,6 @@ Naturaleza
 
 </div>
 
-
 <div class="gallery-item"
 onclick="abrirImagen('blanco4.png','Detalles a lápiz')">
 
@@ -806,7 +1895,6 @@ Detalles a lápiz
 </div>
 
 </div>
-
 
 <div class="gallery-item"
 onclick="abrirImagen('blanco5.png','Ilustración clásica')">
@@ -820,14 +1908,11 @@ Ilustración clásica
 
 </div>
 
-
 </div>
 
 </div>
 
 </section>
-
-
 
 <!-- =====================================================
      GALERÍA ACUARELA
@@ -838,7 +1923,6 @@ class="gallery-page">
 
 <div class="container">
 
-
 <div class="gallery-header">
 
 <button class="back-btn"
@@ -847,7 +1931,6 @@ onclick="mostrarInicio()">
 ← Volver a colecciones
 
 </button>
-
 
 <h2>
 
@@ -859,7 +1942,6 @@ acuarela
 
 </h2>
 
-
 <p>
 
 Colores suaves, transparencias y pinceladas
@@ -869,9 +1951,7 @@ que crean ilustraciones delicadas y llenas de vida.
 
 </div>
 
-
 <div class="gallery-grid">
-
 
 <div class="gallery-item"
 onclick="abrirImagen('acuarela1.png','Flores en acuarela')">
@@ -885,7 +1965,6 @@ Flores en acuarela
 
 </div>
 
-
 <div class="gallery-item"
 onclick="abrirImagen('acuarela2.png','Paisaje')">
 
@@ -897,7 +1976,6 @@ Paisaje
 </div>
 
 </div>
-
 
 <div class="gallery-item"
 onclick="abrirImagen('acuarela3.png','Naturaleza')">
@@ -911,7 +1989,6 @@ Naturaleza
 
 </div>
 
-
 <div class="gallery-item"
 onclick="abrirImagen('acuarela4.png','Composición floral')">
 
@@ -923,7 +2000,6 @@ Composición floral
 </div>
 
 </div>
-
 
 <div class="gallery-item"
 onclick="abrirImagen('acuarela5.png','Ilustración delicada')">
@@ -937,14 +2013,11 @@ Ilustración delicada
 
 </div>
 
-
 </div>
 
 </div>
 
 </section>
-
-
 
 <!-- =====================================================
      GALERÍA A COLOR
@@ -955,7 +2028,6 @@ class="gallery-page">
 
 <div class="container">
 
-
 <div class="gallery-header">
 
 <button class="back-btn"
@@ -964,7 +2036,6 @@ onclick="mostrarInicio()">
 ← Volver a colecciones
 
 </button>
-
 
 <h2>
 
@@ -976,7 +2047,6 @@ a color
 
 </h2>
 
-
 <p>
 
 Ilustraciones llenas de color realizadas
@@ -986,9 +2056,7 @@ con lápices y diferentes técnicas.
 
 </div>
 
-
 <div class="gallery-grid">
-
 
 <div class="gallery-item"
 onclick="abrirImagen('color1.png','Ilustración colorida')">
@@ -1002,7 +2070,6 @@ Ilustración colorida
 
 </div>
 
-
 <div class="gallery-item"
 onclick="abrirImagen('color2.png','Flores a color')">
 
@@ -1015,12 +2082,12 @@ Flores a color
 
 </div>
 
-
 <div class="gallery-item"
 onclick="abrirImagen('color3.png','Personaje ilustrado')">
 
 <img src="color3.png"
-alt="Dibujo a color 3">
+alt="Dibujo a color 3"
+onerror="this.parentElement.style.display='none';">
 
 <div class="gallery-caption">
 Personaje ilustrado
@@ -1028,12 +2095,12 @@ Personaje ilustrado
 
 </div>
 
-
 <div class="gallery-item"
 onclick="abrirImagen('color4.png','Ilustración vibrante')">
 
 <img src="color4.png"
-alt="Dibujo a color 4">
+alt="Dibujo a color 4"
+onerror="this.parentElement.style.display='none';">
 
 <div class="gallery-caption">
 Ilustración vibrante
@@ -1041,12 +2108,12 @@ Ilustración vibrante
 
 </div>
 
-
 <div class="gallery-item"
 onclick="abrirImagen('color5.png','Arte a color')">
 
 <img src="color5.png"
-alt="Dibujo a color 5">
+alt="Dibujo a color 5"
+onerror="this.parentElement.style.display='none';">
 
 <div class="gallery-caption">
 Arte a color
@@ -1054,14 +2121,11 @@ Arte a color
 
 </div>
 
-
 </div>
 
 </div>
 
 </section>
-
-
 
 <!-- =====================================================
      VISOR DE IMÁGENES
@@ -1076,14 +2140,11 @@ onclick="cerrarModal(event)">
 <button class="modal-close"
 onclick="cerrarImagen()">
 
-×
-</button>
-
+× </button>
 
 <img id="modalImage"
 src=""
 alt="">
-
 
 <div id="modalTitle"
 class="modal-title">
@@ -1092,8 +2153,6 @@ class="modal-title">
 </div>
 
 </div>
-
-
 
 <!-- =====================================================
      BOTÓN VOLVER ARRIBA
@@ -1108,8 +2167,6 @@ aria-label="Volver arriba">
 
 </button>
 
-
-
 <!-- =====================================================
      FOOTER
 ===================================================== -->
@@ -1120,10 +2177,9 @@ aria-label="Volver arriba">
 
 <div class="footer-grid">
 
-
 <div class="footer-brand">
 
-<a href="#"
+<a href="#inicio"
 class="logo"
 style="color:white;"
 onclick="mostrarInicio()">
@@ -1142,18 +2198,14 @@ stroke-width="2">
 
 </div>
 
-
 <span>
 
-Arte
-<span style="color:var(--rosa-claro);">
-& Dibujos
-</span>
+Arte <span style="color:var(--rosa-claro);">
+& Dibujos </span>
 
 </span>
 
 </a>
-
 
 <p>
 
@@ -1164,14 +2216,11 @@ y dedicación. Cada trazo cuenta una historia única.
 
 </div>
 
-
-
 <div class="footer-col">
 
 <h4>
 Contacto
 </h4>
-
 
 <ul>
 
@@ -1186,7 +2235,6 @@ rel="noreferrer">
 </a>
 
 </li>
-
 
 <li>
 
@@ -1204,9 +2252,7 @@ rel="noreferrer">
 
 </div>
 
-
 </div>
-
 
 <div class="footer-bottom">
 
@@ -1223,11 +2269,244 @@ Todos los derechos reservados.
 
 </footer>
 
+<script>
+
+/* =====================================================
+   ABRIR GALERÍA
+===================================================== */
+
+function abrirGaleria(id) {
+
+    const paginaPrincipal = document.getElementById("paginaPrincipal");
+
+    if (paginaPrincipal) {
+        paginaPrincipal.style.display = "none";
+    }
+
+    document.querySelectorAll(".gallery-page").forEach(function(galeria) {
+        galeria.classList.remove("active");
+    });
+
+    const galeriaSeleccionada = document.getElementById(id);
+
+    if (galeriaSeleccionada) {
+        galeriaSeleccionada.classList.add("active");
+    }
+
+    cerrarMenu();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
 
 
-<script src="script.js"></script>
+/* =====================================================
+   VOLVER AL INICIO
+===================================================== */
 
+function mostrarInicio() {
+
+    const paginaPrincipal = document.getElementById("paginaPrincipal");
+
+    if (paginaPrincipal) {
+        paginaPrincipal.style.display = "block";
+    }
+
+    document.querySelectorAll(".gallery-page").forEach(function(galeria) {
+        galeria.classList.remove("active");
+    });
+
+    cerrarImagen();
+    cerrarMenu();
+
+    setTimeout(function() {
+        const inicio = document.getElementById("inicio");
+
+        if (inicio) {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+    }, 50);
+}
+
+
+/* =====================================================
+   ABRIR IMAGEN GRANDE
+===================================================== */
+
+function abrirImagen(imagen, titulo) {
+
+    const modal = document.getElementById("imageModal");
+    const modalImage = document.getElementById("modalImage");
+    const modalTitle = document.getElementById("modalTitle");
+
+    if (!modal || !modalImage || !modalTitle) {
+        return;
+    }
+
+    modalImage.src = imagen;
+    modalImage.alt = titulo;
+    modalTitle.textContent = titulo;
+
+    modal.classList.add("open");
+
+    document.body.classList.add("modal-abierto");
+}
+
+
+/* =====================================================
+   CERRAR IMAGEN
+===================================================== */
+
+function cerrarImagen() {
+
+    const modal = document.getElementById("imageModal");
+
+    if (!modal) {
+        return;
+    }
+
+    modal.classList.remove("open");
+
+    document.body.classList.remove("modal-abierto");
+}
+
+
+/* =====================================================
+   CERRAR MODAL HACIENDO CLICK AFUERA
+===================================================== */
+
+function cerrarModal(event) {
+
+    if (event.target === document.getElementById("imageModal")) {
+        cerrarImagen();
+    }
+}
+
+
+/* =====================================================
+   ESC PARA CERRAR
+===================================================== */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+        cerrarImagen();
+        cerrarMenu();
+    }
+
+});
+
+
+/* =====================================================
+   MENÚ MÓVIL
+===================================================== */
+
+function cerrarMenu() {
+
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    if (mobileMenu) {
+        mobileMenu.classList.remove("open");
+    }
+}
+
+
+/* =====================================================
+   ANIMACIONES AL HACER SCROLL
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    const elementosReveal = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+
+        const observer = new IntersectionObserver(
+            function(entries) {
+
+                entries.forEach(function(entry) {
+
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+
+                });
+
+            },
+            {
+                threshold: .15
+            }
+        );
+
+        elementosReveal.forEach(function(elemento) {
+            observer.observe(elemento);
+        });
+
+    } else {
+
+        elementosReveal.forEach(function(elemento) {
+            elemento.classList.add("visible");
+        });
+
+    }
+
+});
+
+
+/* =====================================================
+   BOTÓN VOLVER ARRIBA
+===================================================== */
+
+window.addEventListener("scroll", function() {
+
+    const topBtn = document.getElementById("topBtn");
+
+    if (!topBtn) {
+        return;
+    }
+
+    if (window.scrollY > 500) {
+        topBtn.classList.add("show");
+    } else {
+        topBtn.classList.remove("show");
+    }
+
+});
+
+
+/* =====================================================
+   CERRAR MENÚ AL CAMBIAR DE TAMAÑO
+===================================================== */
+
+window.addEventListener("resize", function() {
+
+    if (window.innerWidth >= 768) {
+        cerrarMenu();
+    }
+
+});
+
+
+/* =====================================================
+   INICIO
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    const paginaPrincipal = document.getElementById("paginaPrincipal");
+
+    if (paginaPrincipal) {
+        paginaPrincipal.style.display = "block";
+    }
+
+});
+
+</script>
 
 </body>
-
 </html>
