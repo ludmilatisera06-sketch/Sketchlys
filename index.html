@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="es">
 
 <head>
@@ -9,18 +8,13 @@
 
 <title>Arte & Dibujos | Portfolio de Ilustraciones</title>
 
-<meta name="description" content="Portfolio de dibujos e ilustraciones personalizadas. Descubre colecciones en blanco y negro, acuarela y a color. Encargos únicos hechos a mano.">
-
-<meta property="og:title" content="Arte & Dibujos | Portfolio de Ilustraciones">
-<meta property="og:description" content="Portfolio de dibujos e ilustraciones personalizadas.">
-<meta property="og:type" content="website">
-
-<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="Portfolio de dibujos e ilustraciones personalizadas.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
 
 <style>
 
@@ -30,18 +24,21 @@
 
 :root{
 
-    --violet:#7C3AED;
-    --pink:#EC4899;
+    --crema:#FFF9F5;
+    --rosa:#D8A7B1;
+    --rosa-claro:#F1D5DB;
+    --rosa-suave:#FBECEF;
 
-    --white:#FFFFFF;
-    --dark:#2D2D2D;
+    --marron:#5A4640;
+    --gris:#766B68;
 
-    --muted:#F3F4F6;
-    --muted-foreground:#6B7280;
+    --beige:#E8D8CC;
+    --dorado:#C9A66B;
 
-    --border:#E5E7EB;
+    --blanco:#FFFFFF;
+    --borde:#EADBD5;
 
-    --radius:0.75rem;
+    --sombra:0 15px 40px rgba(90,70,64,.10);
 
 }
 
@@ -51,78 +48,35 @@
 ===================================================== */
 
 *{
-
-    box-sizing:border-box;
-
     margin:0;
-
     padding:0;
-
+    box-sizing:border-box;
 }
 
 html{
-
     scroll-behavior:smooth;
-
 }
 
 body{
 
-    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    font-family:'Montserrat',sans-serif;
 
-    background:var(--white);
+    background:var(--crema);
 
-    color:var(--dark);
+    color:var(--marron);
 
-    line-height:1.6;
+    line-height:1.7;
 
 }
 
 a{
-
     text-decoration:none;
-
     color:inherit;
-
 }
 
 img{
-
     max-width:100%;
-
     display:block;
-
-}
-
-
-/* =====================================================
-   COLORES Y DEGRADADOS
-===================================================== */
-
-.gradient-brand{
-
-    background:linear-gradient(
-        135deg,
-        var(--violet),
-        var(--pink)
-    );
-
-}
-
-.text-gradient{
-
-    background:linear-gradient(
-        135deg,
-        var(--violet),
-        var(--pink)
-    );
-
-    -webkit-background-clip:text;
-
-    -webkit-text-fill-color:transparent;
-
-    background-clip:text;
-
 }
 
 
@@ -134,31 +88,57 @@ img{
 
     width:100%;
 
-    max-width:80rem;
+    max-width:1200px;
 
-    margin:0 auto;
+    margin:auto;
 
-    padding:0 1rem;
-
-}
-
-@media(min-width:640px){
-
-    .container{
-
-        padding:0 1.5rem;
-
-    }
+    padding:0 20px;
 
 }
 
-@media(min-width:1024px){
 
-    .container{
+/* =====================================================
+   TIPOGRAFÍA
+===================================================== */
 
-        padding:0 2rem;
+h1,
+h2,
+h3,
+.logo{
 
-    }
+    font-family:'Playfair Display',serif;
+
+}
+
+h1{
+
+    font-size:3.3rem;
+
+    line-height:1.15;
+
+    font-weight:600;
+
+}
+
+h2{
+
+    font-size:2.4rem;
+
+    line-height:1.2;
+
+    font-weight:600;
+
+}
+
+h3{
+
+    font-weight:600;
+
+}
+
+.text-accent{
+
+    color:var(--rosa);
 
 }
 
@@ -173,17 +153,19 @@ header{
 
     top:0;
 
-    z-index:50;
+    z-index:100;
 
-    background:rgba(255,255,255,.95);
+    background:rgba(255,249,245,.95);
 
-    backdrop-filter:blur(10px);
+    backdrop-filter:blur(12px);
 
-    border-bottom:1px solid rgba(229,231,235,.5);
+    border-bottom:1px solid rgba(216,167,177,.25);
 
 }
 
 .header-inner{
+
+    height:78px;
 
     display:flex;
 
@@ -191,9 +173,10 @@ header{
 
     justify-content:space-between;
 
-    height:4rem;
-
 }
+
+
+/* LOGO */
 
 .logo{
 
@@ -201,23 +184,19 @@ header{
 
     align-items:center;
 
-    gap:.5rem;
+    gap:11px;
 
-    font-weight:800;
+    font-size:1.35rem;
 
-    font-size:1.125rem;
-
-    letter-spacing:-.025em;
+    font-weight:600;
 
 }
 
 .logo-icon{
 
-    width:2.25rem;
+    width:43px;
 
-    height:2.25rem;
-
-    border-radius:.5rem;
+    height:43px;
 
     display:flex;
 
@@ -225,15 +204,17 @@ header{
 
     justify-content:center;
 
+    border-radius:50%;
+
+    background:var(--rosa);
+
     color:white;
 
 }
 
 .logo-icon svg{
 
-    width:1.25rem;
-
-    height:1.25rem;
+    width:22px;
 
 }
 
@@ -250,47 +231,51 @@ nav.desktop{
 
 nav.desktop a{
 
-    padding:.5rem .75rem;
+    position:relative;
 
-    border-radius:.375rem;
+    padding:8px 12px;
 
-    font-size:.875rem;
+    font-size:.85rem;
 
-    font-weight:500;
+    font-weight:600;
 
-    color:rgba(45,45,45,.8);
+    color:var(--marron);
 
-    transition:all .2s;
+    transition:.3s;
+
+}
+
+nav.desktop a::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+
+    left:50%;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--rosa);
+
+    transform:translateX(-50%);
+
+    transition:.3s;
 
 }
 
 nav.desktop a:hover{
 
-    background:rgba(124,58,237,.1);
-
-    color:var(--violet);
+    color:var(--rosa);
 
 }
 
-.menu-btn{
+nav.desktop a:hover::after{
 
-    background:none;
-
-    border:none;
-
-    cursor:pointer;
-
-    padding:.5rem;
-
-    color:var(--dark);
-
-}
-
-.menu-btn svg{
-
-    width:1.5rem;
-
-    height:1.5rem;
+    width:60%;
 
 }
 
@@ -302,7 +287,7 @@ nav.desktop a:hover{
 
         align-items:center;
 
-        gap:.25rem;
+        gap:4px;
 
     }
 
@@ -319,21 +304,39 @@ nav.desktop a:hover{
    MENÚ MÓVIL
 ===================================================== */
 
+.menu-btn{
+
+    background:none;
+
+    border:none;
+
+    cursor:pointer;
+
+    color:var(--marron);
+
+}
+
+.menu-btn svg{
+
+    width:25px;
+
+}
+
 .mobile-menu{
 
     position:fixed;
 
     inset:0;
 
-    z-index:100;
+    z-index:200;
 
-    background:rgba(0,0,0,.4);
+    background:rgba(90,70,64,.35);
 
     opacity:0;
 
     pointer-events:none;
 
-    transition:opacity .2s;
+    transition:.3s;
 
 }
 
@@ -355,15 +358,15 @@ nav.desktop a:hover{
 
     bottom:0;
 
-    width:18rem;
+    width:290px;
 
-    background:white;
+    background:var(--crema);
 
-    padding:1.5rem;
+    padding:25px;
 
     transform:translateX(100%);
 
-    transition:transform .3s ease;
+    transition:.3s;
 
 }
 
@@ -377,23 +380,21 @@ nav.desktop a:hover{
 
     display:block;
 
-    padding:.75rem;
+    padding:13px;
 
-    border-radius:.375rem;
+    border-radius:10px;
 
-    font-weight:500;
+    font-weight:600;
 
-    color:rgba(45,45,45,.8);
-
-    margin-bottom:.25rem;
+    margin-bottom:5px;
 
 }
 
 .mobile-panel a:hover{
 
-    background:rgba(124,58,237,.1);
+    background:var(--rosa-suave);
 
-    color:var(--violet);
+    color:var(--rosa);
 
 }
 
@@ -401,9 +402,9 @@ nav.desktop a:hover{
 
     position:absolute;
 
-    top:1rem;
+    top:18px;
 
-    right:1rem;
+    right:18px;
 
     background:none;
 
@@ -411,15 +412,13 @@ nav.desktop a:hover{
 
     cursor:pointer;
 
-    padding:.5rem;
+    color:var(--marron);
 
 }
 
 .close-btn svg{
 
-    width:1.5rem;
-
-    height:1.5rem;
+    width:25px;
 
 }
 
@@ -434,7 +433,7 @@ nav.desktop a:hover{
 
     overflow:hidden;
 
-    padding:3rem 0 4rem;
+    padding:80px 0 100px;
 
 }
 
@@ -445,10 +444,6 @@ nav.desktop a:hover{
     inset:0;
 
     z-index:-1;
-
-    opacity:.3;
-
-    pointer-events:none;
 
 }
 
@@ -464,29 +459,29 @@ nav.desktop a:hover{
 
 .blob-1{
 
-    width:18rem;
+    width:300px;
 
-    height:18rem;
+    height:300px;
 
-    background:rgba(124,58,237,.2);
+    background:rgba(241,213,219,.6);
 
-    left:-5rem;
+    left:-130px;
 
-    top:-5rem;
+    top:-100px;
 
 }
 
 .blob-2{
 
-    width:24rem;
+    width:350px;
 
-    height:24rem;
+    height:350px;
 
-    background:rgba(236,72,153,.2);
+    background:rgba(232,216,204,.55);
 
-    right:-5rem;
+    right:-150px;
 
-    bottom:-5rem;
+    bottom:-150px;
 
 }
 
@@ -494,7 +489,7 @@ nav.desktop a:hover{
 
     display:grid;
 
-    gap:2.5rem;
+    gap:50px;
 
     align-items:center;
 
@@ -505,24 +500,6 @@ nav.desktop a:hover{
     .hero-grid{
 
         grid-template-columns:1fr 1fr;
-
-    }
-
-    .hero-text{
-
-        order:1;
-
-    }
-
-    .hero-image{
-
-        order:2;
-
-    }
-
-    .hero{
-
-        padding:5rem 0 6rem;
 
     }
 
@@ -539,75 +516,47 @@ nav.desktop a:hover{
 
     align-items:center;
 
-    gap:.5rem;
+    gap:8px;
 
-    padding:.375rem .875rem;
+    padding:8px 15px;
 
-    border-radius:9999px;
+    border-radius:30px;
 
-    border:1px solid rgba(124,58,237,.2);
+    border:1px solid var(--rosa-claro);
 
-    background:rgba(124,58,237,.1);
+    background:white;
 
-    color:var(--violet);
+    color:var(--rosa);
 
-    font-size:.875rem;
+    font-size:.78rem;
 
-    font-weight:500;
+    font-weight:700;
 
-    margin-bottom:1rem;
+    margin-bottom:20px;
 
 }
 
 .badge svg{
 
-    width:1rem;
-
-    height:1rem;
+    width:16px;
 
 }
 
-h1{
+.hero h1{
 
-    font-size:2.5rem;
-
-    line-height:1.1;
-
-    font-weight:800;
-
-    letter-spacing:-.025em;
-
-}
-
-@media(min-width:640px){
-
-    h1{
-
-        font-size:3rem;
-
-    }
-
-}
-
-@media(min-width:1024px){
-
-    h1{
-
-        font-size:3.75rem;
-
-    }
+    color:var(--marron);
 
 }
 
 .hero p{
 
-    margin-top:1.25rem;
+    margin-top:22px;
 
-    font-size:1.125rem;
+    font-size:1rem;
 
-    color:var(--muted-foreground);
+    color:var(--gris);
 
-    max-width:36rem;
+    max-width:570px;
 
 }
 
@@ -618,13 +567,13 @@ h1{
 
 .btn-group{
 
-    margin-top:2rem;
+    margin-top:30px;
 
     display:flex;
 
     flex-wrap:wrap;
 
-    gap:.75rem;
+    gap:13px;
 
 }
 
@@ -636,41 +585,35 @@ h1{
 
     justify-content:center;
 
-    padding:.875rem 1.75rem;
+    padding:13px 23px;
 
-    border-radius:var(--radius);
+    border-radius:30px;
 
-    font-weight:600;
+    font-size:.85rem;
 
-    font-size:1rem;
+    font-weight:700;
 
-    transition:all .2s;
+    transition:.3s;
 
     cursor:pointer;
-
-    border:none;
 
 }
 
 .btn-primary{
 
-    background:linear-gradient(
-        135deg,
-        var(--violet),
-        var(--pink)
-    );
+    background:var(--rosa);
 
     color:white;
 
-    box-shadow:0 10px 25px -5px rgba(124,58,237,.35);
+    box-shadow:0 8px 20px rgba(216,167,177,.28);
 
 }
 
 .btn-primary:hover{
 
-    opacity:.9;
+    background:#C98F9C;
 
-    transform:translateY(-1px);
+    transform:translateY(-3px);
 
 }
 
@@ -678,56 +621,64 @@ h1{
 
     background:transparent;
 
-    border:2px solid var(--pink);
+    border:1.5px solid var(--rosa);
 
-    color:var(--pink);
+    color:var(--rosa);
 
 }
 
 .btn-outline:hover{
 
-    background:var(--pink);
+    background:var(--rosa-suave);
 
-    color:white;
+    transform:translateY(-3px);
 
 }
 
 
 /* =====================================================
-   HERO IMAGEN
+   IMAGEN HERO
 ===================================================== */
 
 .hero-img-wrap{
 
     position:relative;
 
-    border-radius:1.5rem;
+    padding:12px;
 
-    overflow:hidden;
+    background:white;
 
-    box-shadow:0 25px 50px -12px rgba(0,0,0,.25);
+    border-radius:25px;
+
+    box-shadow:var(--sombra);
+
+    transform:rotate(1deg);
+
+    transition:.4s;
+
+}
+
+.hero-img-wrap:hover{
+
+    transform:rotate(0deg) translateY(-5px);
 
 }
 
 .hero-img-wrap::before{
 
-    content:'';
+    content:"";
 
     position:absolute;
 
-    inset:-1rem;
+    inset:-8px;
+
+    border:1px solid var(--dorado);
+
+    border-radius:28px;
+
+    opacity:.45;
 
     z-index:-1;
-
-    border-radius:2rem;
-
-    background:linear-gradient(
-        135deg,
-        rgba(124,58,237,.3),
-        rgba(236,72,153,.3)
-    );
-
-    filter:blur(20px);
 
 }
 
@@ -739,9 +690,7 @@ h1{
 
     object-fit:cover;
 
-    border-radius:1.5rem;
-
-    border:1px solid var(--border);
+    border-radius:17px;
 
 }
 
@@ -752,7 +701,7 @@ h1{
 
 section{
 
-    padding:5rem 0;
+    padding:90px 0;
 
 }
 
@@ -760,37 +709,23 @@ section{
 
     text-align:center;
 
-    margin-bottom:3rem;
+    margin-bottom:50px;
 
 }
 
 .section-title h2{
 
-    font-size:2rem;
-
-    font-weight:800;
-
-    letter-spacing:-.025em;
-
-}
-
-@media(min-width:640px){
-
-    .section-title h2{
-
-        font-size:2.5rem;
-
-    }
+    color:var(--marron);
 
 }
 
 .section-title p{
 
-    margin-top:.75rem;
+    margin-top:12px;
 
-    color:var(--muted-foreground);
+    color:var(--gris);
 
-    max-width:42rem;
+    max-width:600px;
 
     margin-left:auto;
 
@@ -800,14 +735,14 @@ section{
 
 
 /* =====================================================
-   TARJETAS DE COLECCIONES
+   TARJETAS
 ===================================================== */
 
 .cards-grid{
 
     display:grid;
 
-    gap:1.5rem;
+    gap:25px;
 
 }
 
@@ -835,23 +770,23 @@ section{
 
     background:white;
 
-    border:1px solid rgba(229,231,235,.6);
+    border:1px solid var(--borde);
 
-    border-radius:var(--radius);
+    border-radius:20px;
 
     overflow:hidden;
 
-    box-shadow:0 1px 3px rgba(0,0,0,.05);
+    box-shadow:0 6px 20px rgba(90,70,64,.06);
 
-    transition:box-shadow .3s,transform .3s;
+    transition:.4s;
 
 }
 
 .card:hover{
 
-    box-shadow:0 20px 25px -5px rgba(0,0,0,.1);
+    transform:translateY(-10px);
 
-    transform:translateY(-5px);
+    box-shadow:var(--sombra);
 
 }
 
@@ -861,25 +796,27 @@ section{
 
     overflow:hidden;
 
+    background:var(--rosa-suave);
+
 }
 
 .card-img img{
 
     width:100%;
 
-    height:280px;
+    height:300px;
 
     object-fit:contain;
 
-    background:#F3F4F6;
+    background:#FAF6F3;
 
-    transition:transform .5s;
+    transition:.6s;
 
 }
 
 .card:hover .card-img img{
 
-    transform:scale(1.05);
+    transform:scale(1.07);
 
 }
 
@@ -887,47 +824,47 @@ section{
 
     position:absolute;
 
-    left:.75rem;
+    left:15px;
 
-    top:.75rem;
+    top:15px;
 
-    background:var(--pink);
+    background:white;
 
-    color:white;
+    color:var(--marron);
 
-    padding:.25rem .75rem;
+    padding:6px 12px;
 
-    border-radius:9999px;
+    border-radius:20px;
 
-    font-size:.75rem;
+    font-size:.7rem;
 
     font-weight:700;
+
+    border:1px solid var(--borde);
 
 }
 
 .card-body{
 
-    padding:1.25rem;
+    padding:23px;
 
 }
 
 .card-body h3{
 
-    font-size:1.25rem;
+    font-size:1.35rem;
 
-    font-weight:700;
+    color:var(--marron);
 
-    margin-bottom:.5rem;
+    margin-bottom:8px;
 
 }
 
 .card-body p{
 
-    font-size:.95rem;
+    font-size:.87rem;
 
-    color:var(--muted-foreground);
-
-    line-height:1.6;
+    color:var(--gris);
 
 }
 
@@ -935,25 +872,25 @@ section{
 
     display:inline-block;
 
-    margin-top:1rem;
+    margin-top:16px;
 
-    color:var(--violet);
+    color:var(--rosa);
 
-    font-weight:600;
+    font-size:.8rem;
 
-    font-size:.9rem;
+    font-weight:700;
 
     cursor:pointer;
 
-    transition:.2s;
+    transition:.3s;
 
 }
 
 .card-link:hover{
 
-    color:var(--pink);
+    color:var(--dorado);
 
-    transform:translateX(3px);
+    transform:translateX(5px);
 
 }
 
@@ -968,9 +905,9 @@ section{
 
     min-height:100vh;
 
-    background:#FAFAFC;
+    padding:70px 0 100px;
 
-    padding:4rem 0 6rem;
+    background:var(--crema);
 
 }
 
@@ -978,7 +915,7 @@ section{
 
     display:block;
 
-    animation:galleryAppear .45s ease;
+    animation:galleryAppear .5s ease;
 
 }
 
@@ -1006,27 +943,23 @@ section{
 
     text-align:center;
 
-    margin-bottom:3rem;
+    max-width:700px;
+
+    margin:0 auto 45px;
 
 }
 
 .gallery-header h2{
 
-    font-size:2.5rem;
-
-    font-weight:800;
-
-    margin-top:1.5rem;
+    margin-top:20px;
 
 }
 
 .gallery-header p{
 
-    color:var(--muted-foreground);
+    margin-top:12px;
 
-    max-width:600px;
-
-    margin:1rem auto 0;
+    color:var(--gris);
 
 }
 
@@ -1036,39 +969,39 @@ section{
 
     align-items:center;
 
-    gap:.5rem;
+    gap:8px;
 
-    padding:.7rem 1.2rem;
+    padding:10px 18px;
 
-    border:1px solid var(--border);
+    border:1px solid var(--rosa);
 
-    border-radius:999px;
+    border-radius:30px;
+
+    color:var(--rosa);
 
     background:white;
 
-    color:var(--violet);
+    font-weight:700;
 
-    font-weight:600;
+    font-size:.82rem;
 
     cursor:pointer;
 
-    transition:.25s;
+    transition:.3s;
 
 }
 
 .back-btn:hover{
 
-    background:var(--violet);
+    background:var(--rosa-suave);
 
-    color:white;
-
-    transform:translateX(-3px);
+    transform:translateX(-4px);
 
 }
 
 
 /* =====================================================
-   GRID DE IMÁGENES
+   GALERÍA ESTILO PORTFOLIO
 ===================================================== */
 
 .gallery-grid{
@@ -1077,7 +1010,7 @@ section{
 
     grid-template-columns:1fr;
 
-    gap:1.5rem;
+    gap:22px;
 
 }
 
@@ -1107,57 +1040,77 @@ section{
 
     background:white;
 
-    padding:.65rem;
+    padding:10px;
 
-    border:1px solid var(--border);
+    border:1px solid var(--borde);
 
-    border-radius:1rem;
+    border-radius:18px;
 
-    box-shadow:0 5px 18px rgba(0,0,0,.06);
+    box-shadow:0 6px 20px rgba(90,70,64,.07);
+
+    transition:.4s;
 
     cursor:pointer;
 
     overflow:hidden;
 
-    transition:.35s;
-
 }
 
 .gallery-item:hover{
 
-    transform:translateY(-6px);
+    transform:translateY(-7px);
 
-    box-shadow:0 20px 30px rgba(0,0,0,.12);
+    box-shadow:var(--sombra);
+
+}
+
+.gallery-item img{
+
+    width:100%;
+
+    height:330px;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+    background:#FAF6F3;
+
+    transition:.5s;
+
+}
+
+.gallery-item:hover img{
+
+    transform:scale(1.04);
 
 }
 
 .gallery-item::after{
 
-    content:'🔍';
+    content:"Ver dibujo";
 
     position:absolute;
 
-    top:15px;
+    left:50%;
 
-    right:15px;
+    top:50%;
 
-    width:38px;
+    transform:translate(-50%,-50%) scale(.8);
 
-    height:38px;
+    background:rgba(90,70,64,.85);
 
-    display:flex;
+    color:white;
 
-    align-items:center;
+    padding:9px 18px;
 
-    justify-content:center;
+    border-radius:25px;
 
-    background:rgba(255,255,255,.9);
+    font-size:.75rem;
 
-    border-radius:50%;
+    font-weight:600;
 
     opacity:0;
-
-    transform:scale(.7);
 
     transition:.3s;
 
@@ -1167,47 +1120,27 @@ section{
 
     opacity:1;
 
-    transform:scale(1);
-
-}
-
-.gallery-item img{
-
-    width:100%;
-
-    height:320px;
-
-    object-fit:cover;
-
-    border-radius:.7rem;
-
-    background:#F3F4F6;
-
-    transition:.4s;
-
-}
-
-.gallery-item:hover img{
-
-    transform:scale(1.02);
+    transform:translate(-50%,-50%) scale(1);
 
 }
 
 .gallery-caption{
 
-    padding:.9rem .5rem .5rem;
+    padding:13px 8px 7px;
 
     text-align:center;
 
-    font-weight:600;
+    font-family:'Playfair Display',serif;
 
-    color:var(--dark);
+    font-size:1.05rem;
+
+    color:var(--marron);
 
 }
 
 
 /* =====================================================
-   VISOR DE IMAGEN GRANDE
+   VISOR GRANDE
 ===================================================== */
 
 .image-modal{
@@ -1226,7 +1159,7 @@ section{
 
     padding:25px;
 
-    background:rgba(20,15,25,.88);
+    background:rgba(55,40,40,.88);
 
     opacity:0;
 
@@ -1234,7 +1167,7 @@ section{
 
     pointer-events:none;
 
-    transition:opacity .3s,visibility .3s;
+    transition:.3s;
 
 }
 
@@ -1254,37 +1187,13 @@ section{
 
     max-width:950px;
 
-    width:100%;
-
     max-height:90vh;
 
     display:flex;
 
-    align-items:center;
-
     justify-content:center;
 
-    animation:modalZoom .3s ease;
-
-}
-
-@keyframes modalZoom{
-
-    from{
-
-        opacity:0;
-
-        transform:scale(.85);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:scale(1);
-
-    }
+    align-items:center;
 
 }
 
@@ -1294,15 +1203,33 @@ section{
 
     max-height:82vh;
 
-    width:auto;
-
-    height:auto;
-
     object-fit:contain;
 
     border-radius:12px;
 
-    box-shadow:0 25px 60px rgba(0,0,0,.4);
+    box-shadow:0 30px 70px rgba(0,0,0,.4);
+
+    animation:zoomImage .35s ease;
+
+}
+
+@keyframes zoomImage{
+
+    from{
+
+        transform:scale(.85);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
 
 }
 
@@ -1310,7 +1237,7 @@ section{
 
     position:absolute;
 
-    right:-10px;
+    right:-20px;
 
     top:-55px;
 
@@ -1324,25 +1251,19 @@ section{
 
     background:white;
 
-    color:var(--dark);
+    color:var(--marron);
 
-    font-size:24px;
+    font-size:25px;
 
     cursor:pointer;
 
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    transition:.25s;
+    transition:.3s;
 
 }
 
 .modal-close:hover{
 
-    background:var(--pink);
+    background:var(--rosa);
 
     color:white;
 
@@ -1364,31 +1285,108 @@ section{
 
     color:white;
 
-    font-weight:600;
+    font-family:'Playfair Display',serif;
+
+    font-size:1.1rem;
 
 }
 
-@media(max-width:600px){
 
-    .image-modal{
+/* =====================================================
+   MI PROCESO
+===================================================== */
 
-        padding:15px;
+.proceso{
+
+    background:white;
+
+    border-top:1px solid var(--borde);
+
+    border-bottom:1px solid var(--borde);
+
+}
+
+.proceso-grid{
+
+    display:grid;
+
+    gap:25px;
+
+}
+
+@media(min-width:768px){
+
+    .proceso-grid{
+
+        grid-template-columns:repeat(4,1fr);
 
     }
 
-    .modal-content img{
+}
 
-        max-height:75vh;
+.proceso-card{
 
-    }
+    text-align:center;
 
-    .modal-close{
+    padding:25px 18px;
 
-        right:0;
+    border:1px solid var(--borde);
 
-        top:-50px;
+    border-radius:18px;
 
-    }
+    background:var(--crema);
+
+    transition:.35s;
+
+}
+
+.proceso-card:hover{
+
+    transform:translateY(-7px);
+
+    box-shadow:var(--sombra);
+
+}
+
+.proceso-numero{
+
+    width:45px;
+
+    height:45px;
+
+    margin:0 auto 15px;
+
+    border-radius:50%;
+
+    background:var(--rosa);
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-family:'Playfair Display',serif;
+
+    font-size:1.2rem;
+
+}
+
+.proceso-card h3{
+
+    font-size:1.2rem;
+
+    margin-bottom:8px;
+
+}
+
+.proceso-card p{
+
+    font-size:.82rem;
+
+    color:var(--gris);
 
 }
 
@@ -1399,7 +1397,11 @@ section{
 
 .personalizados{
 
-    background:rgba(243,244,246,.5);
+    background:#F8EFEB;
+
+    border-top:1px solid var(--borde);
+
+    border-bottom:1px solid var(--borde);
 
 }
 
@@ -1407,7 +1409,7 @@ section{
 
     display:grid;
 
-    gap:2.5rem;
+    gap:50px;
 
     align-items:center;
 
@@ -1423,11 +1425,25 @@ section{
 
 }
 
+.personalizados h2{
+
+    color:var(--marron);
+
+}
+
+.personalizados-description{
+
+    margin-top:17px;
+
+    color:var(--gris);
+
+}
+
 .personalizados ul{
 
     list-style:none;
 
-    margin-top:1.5rem;
+    margin-top:25px;
 
 }
 
@@ -1437,23 +1453,23 @@ section{
 
     align-items:center;
 
-    gap:.75rem;
+    gap:12px;
 
-    margin-bottom:.75rem;
+    margin-bottom:13px;
 
-    color:rgba(45,45,45,.85);
+    color:var(--marron);
+
+    font-size:.9rem;
 
 }
 
 .icon-check{
 
-    width:1.5rem;
+    width:27px;
 
-    height:1.5rem;
+    height:27px;
 
     border-radius:50%;
-
-    flex-shrink:0;
 
     display:flex;
 
@@ -1461,15 +1477,11 @@ section{
 
     justify-content:center;
 
+    flex-shrink:0;
+
+    background:var(--rosa);
+
     color:white;
-
-}
-
-.icon-check svg{
-
-    width:.75rem;
-
-    height:.75rem;
 
 }
 
@@ -1482,51 +1494,49 @@ section{
 
     background:white;
 
-    border:1px solid rgba(229,231,235,.6);
+    border:1px solid var(--borde);
 
-    border-radius:var(--radius);
+    border-radius:22px;
 
     overflow:hidden;
 
-    box-shadow:0 20px 25px -5px rgba(0,0,0,.1);
+    box-shadow:var(--sombra);
 
 }
 
 .about-card-header{
 
-    padding:1.5rem;
+    padding:25px;
 
-    background:linear-gradient(
-        90deg,
-        rgba(124,58,237,.1),
-        rgba(236,72,153,.1)
-    );
+    background:var(--rosa-suave);
+
+    border-bottom:1px solid var(--borde);
 
 }
 
 .about-card-header h3{
 
-    font-size:1.5rem;
-
-    font-weight:700;
+    font-size:1.7rem;
 
 }
 
 .about-card-header p{
 
-    color:var(--muted-foreground);
+    color:var(--gris);
 
-    margin-top:.25rem;
+    margin-top:4px;
+
+    font-size:.85rem;
 
 }
 
 .about-card-body{
 
-    padding:1.5rem;
+    padding:20px;
 
     display:grid;
 
-    gap:1rem;
+    gap:15px;
 
 }
 
@@ -1548,7 +1558,15 @@ section{
 
     object-fit:cover;
 
-    border-radius:.75rem;
+    border-radius:13px;
+
+    transition:.4s;
+
+}
+
+.about-card-body img:hover{
+
+    transform:scale(1.03);
 
 }
 
@@ -1556,9 +1574,28 @@ section{
 
     grid-column:1/-1;
 
-    font-size:.9rem;
+    font-size:.85rem;
 
-    color:var(--muted-foreground);
+    color:var(--gris);
+
+}
+
+
+/* =====================================================
+   DECORACIÓN
+===================================================== */
+
+.decoracion{
+
+    text-align:center;
+
+    color:var(--dorado);
+
+    font-size:1.5rem;
+
+    letter-spacing:10px;
+
+    margin-bottom:25px;
 
 }
 
@@ -1569,11 +1606,11 @@ section{
 
 footer{
 
-    background:var(--dark);
+    background:var(--marron);
 
     color:white;
 
-    padding:3.5rem 0 1.5rem;
+    padding:65px 0 25px;
 
 }
 
@@ -1581,7 +1618,7 @@ footer{
 
     display:grid;
 
-    gap:2.5rem;
+    gap:40px;
 
 }
 
@@ -1589,17 +1626,7 @@ footer{
 
     .footer-grid{
 
-        grid-template-columns:repeat(2,1fr);
-
-    }
-
-}
-
-@media(min-width:1024px){
-
-    .footer-grid{
-
-        grid-template-columns:2fr 1fr 1fr;
+        grid-template-columns:2fr 1fr;
 
     }
 
@@ -1607,29 +1634,27 @@ footer{
 
 .footer-brand p{
 
-    margin-top:1rem;
+    margin-top:15px;
 
-    font-size:.9rem;
+    font-size:.85rem;
 
     color:rgba(255,255,255,.7);
 
-    max-width:20rem;
+    max-width:350px;
 
 }
 
 .footer-col h4{
 
-    font-size:.875rem;
-
-    font-weight:700;
+    font-size:.8rem;
 
     text-transform:uppercase;
 
-    letter-spacing:.05em;
+    letter-spacing:.08em;
 
-    color:var(--pink);
+    color:var(--rosa-claro);
 
-    margin-bottom:1rem;
+    margin-bottom:18px;
 
 }
 
@@ -1641,7 +1666,7 @@ footer{
 
 .footer-col li{
 
-    margin-bottom:.75rem;
+    margin-bottom:13px;
 
 }
 
@@ -1651,13 +1676,13 @@ footer{
 
     align-items:center;
 
-    gap:.5rem;
+    gap:8px;
 
-    font-size:.9rem;
+    font-size:.82rem;
 
-    color:rgba(255,255,255,.8);
+    color:rgba(255,255,255,.75);
 
-    transition:color .2s;
+    transition:.3s;
 
 }
 
@@ -1665,31 +1690,21 @@ footer{
 
     color:white;
 
-}
-
-.footer-col svg{
-
-    width:1rem;
-
-    height:1rem;
-
-    color:var(--violet);
-
-    flex-shrink:0;
+    transform:translateX(4px);
 
 }
 
 .footer-bottom{
 
-    margin-top:3rem;
+    margin-top:45px;
 
-    padding-top:1.5rem;
+    padding-top:20px;
 
-    border-top:1px solid rgba(255,255,255,.1);
+    border-top:1px solid rgba(255,255,255,.12);
 
     text-align:center;
 
-    font-size:.75rem;
+    font-size:.7rem;
 
     color:rgba(255,255,255,.5);
 
@@ -1697,22 +1712,40 @@ footer{
 
 
 /* =====================================================
-   ANIMACIONES
+   ANIMACIONES AL HACER SCROLL
 ===================================================== */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(35px);
+
+    transition:opacity .8s ease, transform .8s ease;
+
+}
+
+.reveal.visible{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
 
 .hero-text{
 
-    animation:fadeUp .7s ease;
+    animation:aparecer .8s ease;
 
 }
 
 .hero-image{
 
-    animation:fadeUp .9s ease;
+    animation:aparecer 1s ease;
 
 }
 
-@keyframes fadeUp{
+@keyframes aparecer{
 
     from{
 
@@ -1732,11 +1765,136 @@ footer{
 
 }
 
+
+/* =====================================================
+   BOTÓN VOLVER ARRIBA
+===================================================== */
+
+.top-btn{
+
+    position:fixed;
+
+    right:22px;
+
+    bottom:22px;
+
+    z-index:90;
+
+    width:45px;
+
+    height:45px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:var(--rosa);
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    box-shadow:0 8px 20px rgba(90,70,64,.2);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.3s;
+
+}
+
+.top-btn.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.top-btn:hover{
+
+    background:var(--dorado);
+
+    transform:translateY(-4px);
+
+}
+
+
+/* =====================================================
+   MÓVIL
+===================================================== */
+
+@media(max-width:639px){
+
+    h1{
+
+        font-size:2.5rem;
+
+    }
+
+    h2{
+
+        font-size:2rem;
+
+    }
+
+    .hero{
+
+        padding:55px 0 70px;
+
+    }
+
+    section{
+
+        padding:70px 0;
+
+    }
+
+    .gallery-item img{
+
+        height:300px;
+
+    }
+
+    .modal-close{
+
+        right:0;
+
+        top:-50px;
+
+    }
+
+}
+
+
+/* =====================================================
+   REDUCIR ANIMACIONES SI EL USUARIO LO PREFIERE
+===================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+
+        scroll-behavior:auto!important;
+
+        transition:none!important;
+
+        animation:none!important;
+
+    }
+
+}
+
 </style>
 
 </head>
 
+
 <body>
+
 
 <!-- =====================================================
      HEADER
@@ -1746,9 +1904,9 @@ footer{
 
 <div class="container header-inner">
 
-<a href="#inicio" class="logo">
+<a href="#" class="logo" onclick="mostrarInicio()">
 
-<div class="logo-icon gradient-brand">
+<div class="logo-icon">
 
 <svg xmlns="http://www.w3.org/2000/svg"
 fill="none"
@@ -1763,18 +1921,19 @@ stroke-width="2">
 </div>
 
 <span>
-
-Arte<span class="text-gradient">&Dibujos</span>
-
+Arte <span style="color:var(--rosa);">& Dibujos</span>
 </span>
 
 </a>
 
+
 <nav class="desktop">
 
-<a href="#inicio">Inicio</a>
+<a href="#" onclick="mostrarInicio()">Inicio</a>
 
-<a href="#coleccion">Colección de dibujos</a>
+<a href="#coleccion">Colección</a>
+
+<a href="#proceso">Mi proceso</a>
 
 <a href="#personalizados">Personalizados</a>
 
@@ -1783,6 +1942,7 @@ Arte<span class="text-gradient">&Dibujos</span>
 <a href="#contacto">Contacto</a>
 
 </nav>
+
 
 <button class="menu-btn"
 aria-label="Abrir menú"
@@ -1804,19 +1964,20 @@ stroke-width="2">
 
 </header>
 
+
+
 <!-- =====================================================
      MENÚ MÓVIL
 ===================================================== -->
 
 <div id="mobileMenu"
 class="mobile-menu"
-onclick="if(event.target===this)document.getElementById('mobileMenu').classList.remove('open')">
+onclick="if(event.target===this)cerrarMenu()">
 
 <div class="mobile-panel">
 
 <button class="close-btn"
-aria-label="Cerrar menú"
-onclick="document.getElementById('mobileMenu').classList.remove('open')">
+onclick="cerrarMenu()">
 
 <svg xmlns="http://www.w3.org/2000/svg"
 fill="none"
@@ -1830,33 +1991,40 @@ stroke-width="2">
 
 </button>
 
-<div style="margin-top:3rem;">
 
-<a href="#inicio"
-onclick="cerrarMenu()">
-Inicio </a>
+<div style="margin-top:55px;">
 
-<a href="#coleccion"
-onclick="cerrarMenu()">
-Colección de dibujos </a>
+<a href="#" onclick="mostrarInicio();cerrarMenu();">
+Inicio
+</a>
 
-<a href="#personalizados"
-onclick="cerrarMenu()">
-Personalizados </a>
+<a href="#coleccion" onclick="cerrarMenu();">
+Colección
+</a>
 
-<a href="#sobre-mi"
-onclick="cerrarMenu()">
-Sobre mí </a>
+<a href="#proceso" onclick="cerrarMenu();">
+Mi proceso
+</a>
 
-<a href="#contacto"
-onclick="cerrarMenu()">
-Contacto </a>
+<a href="#personalizados" onclick="cerrarMenu();">
+Personalizados
+</a>
+
+<a href="#sobre-mi" onclick="cerrarMenu();">
+Sobre mí
+</a>
+
+<a href="#contacto" onclick="cerrarMenu();">
+Contacto
+</a>
 
 </div>
 
 </div>
 
 </div>
+
+
 
 <!-- =====================================================
      PÁGINA PRINCIPAL
@@ -1865,6 +2033,7 @@ Contacto </a>
 <div id="paginaPrincipal">
 
 <main>
+
 
 <!-- =====================================================
      HERO
@@ -1880,7 +2049,9 @@ Contacto </a>
 
 </div>
 
+
 <div class="container hero-grid">
+
 
 <div class="hero-text">
 
@@ -1900,15 +2071,17 @@ Ilustraciones hechas a mano
 
 </div>
 
+
 <h1>
 
 Dibujos que cuentan
 
-<span class="text-gradient">
+<span class="text-accent">
 historias
 </span>
 
 </h1>
+
 
 <p>
 
@@ -1918,6 +2091,7 @@ Cada pieza está creada con dedicación,
 detalle y mucho amor por el arte.
 
 </p>
+
 
 <div class="btn-group">
 
@@ -1939,23 +2113,26 @@ Pedir personalizado
 
 </div>
 
+
+
 <div class="hero-image">
 
 <div class="hero-img-wrap">
 
 <img
 src="01_retrato_flores.png"
-alt="Ilustración principal de retrato artístico con flores"
-width="900"
-height="675">
+alt="Ilustración principal de retrato artístico con flores">
 
 </div>
 
 </div>
+
 
 </div>
 
 </section>
+
+
 
 <!-- =====================================================
      COLECCIONES
@@ -1963,7 +2140,13 @@ height="675">
 
 <section id="coleccion">
 
-<div class="container">
+<div class="container reveal">
+
+
+<div class="decoracion">
+✦ · ✧ · ✦
+</div>
+
 
 <div class="section-title">
 
@@ -1971,7 +2154,7 @@ height="675">
 
 Colecciones
 
-<span class="text-gradient">
+<span class="text-accent">
 destacadas
 </span>
 
@@ -1986,7 +2169,9 @@ transformar ideas en arte.
 
 </div>
 
+
 <div class="cards-grid">
+
 
 <!-- BLANCO Y NEGRO -->
 
@@ -1996,14 +2181,14 @@ transformar ideas en arte.
 
 <img
 src="02_dibujo_blanco_y_negro.png"
-alt="Dibujos blanco y negro"
-loading="lazy">
+alt="Dibujos blanco y negro">
 
 <span class="card-badge">
 Clásico
 </span>
 
 </div>
+
 
 <div class="card-body">
 
@@ -2018,6 +2203,7 @@ con lápiz y grafito. Elegancia en cada trazo.
 
 </p>
 
+
 <a class="card-link"
 onclick="abrirGaleria('galeriaBlanco')">
 
@@ -2029,6 +2215,8 @@ Explorar colección →
 
 </article>
 
+
+
 <!-- ACUARELA -->
 
 <article class="card">
@@ -2037,14 +2225,14 @@ Explorar colección →
 
 <img
 src="03_dibujo_acuarela.png"
-alt="Dibujos en acuarela"
-loading="lazy">
+alt="Dibujos en acuarela">
 
 <span class="card-badge">
 Delicado
 </span>
 
 </div>
+
 
 <div class="card-body">
 
@@ -2059,6 +2247,7 @@ a flores, paisajes y escenas oníricas.
 
 </p>
 
+
 <a class="card-link"
 onclick="abrirGaleria('galeriaAcuarela')">
 
@@ -2070,6 +2259,8 @@ Explorar colección →
 
 </article>
 
+
+
 <!-- A COLOR -->
 
 <article class="card">
@@ -2078,14 +2269,14 @@ Explorar colección →
 
 <img
 src="04_dibujo_a_color.png"
-alt="Dibujos a color"
-loading="lazy">
+alt="Dibujos a color">
 
 <span class="card-badge">
 Vibrante
 </span>
 
 </div>
+
 
 <div class="card-body">
 
@@ -2095,10 +2286,11 @@ Dibujos a color
 
 <p>
 
-Ilustraciones vibrantes con marcadores,
-lápices de colores y arte digital.
+Ilustraciones vibrantes con lápices
+de colores y diferentes técnicas.
 
 </p>
+
 
 <a class="card-link"
 onclick="abrirGaleria('galeriaColor')">
@@ -2111,11 +2303,133 @@ Explorar colección →
 
 </article>
 
+
 </div>
 
 </div>
 
 </section>
+
+
+
+<!-- =====================================================
+     MI PROCESO
+===================================================== -->
+
+<section class="proceso" id="proceso">
+
+<div class="container reveal">
+
+
+<div class="decoracion">
+✦ · ✧ · ✦
+</div>
+
+
+<div class="section-title">
+
+<h2>
+
+Mi proceso
+
+<span class="text-accent">
+creativo
+</span>
+
+</h2>
+
+<p>
+
+Cada dibujo comienza con una idea
+y se transforma poco a poco en una obra.
+
+</p>
+
+</div>
+
+
+<div class="proceso-grid">
+
+
+<div class="proceso-card">
+
+<div class="proceso-numero">
+1
+</div>
+
+<h3>
+Boceto
+</h3>
+
+<p>
+Comienzo con las primeras líneas
+y defino la composición del dibujo.
+</p>
+
+</div>
+
+
+<div class="proceso-card">
+
+<div class="proceso-numero">
+2
+</div>
+
+<h3>
+Detalles
+</h3>
+
+<p>
+Agrego sombras, texturas y pequeños
+detalles para darle personalidad.
+</p>
+
+</div>
+
+
+<div class="proceso-card">
+
+<div class="proceso-numero">
+3
+</div>
+
+<h3>
+Color
+</h3>
+
+<p>
+Elijo los colores y materiales que
+mejor representan la idea.
+</p>
+
+</div>
+
+
+<div class="proceso-card">
+
+<div class="proceso-numero">
+4
+</div>
+
+<h3>
+Resultado
+</h3>
+
+<p>
+El dibujo cobra vida y se convierte
+en una pieza única.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
 
 <!-- =====================================================
      PERSONALIZADOS
@@ -2124,23 +2438,23 @@ Explorar colección →
 <section class="personalizados"
 id="personalizados">
 
-<div class="container">
+<div class="container personalizados-grid reveal">
 
-<div class="personalizados-grid">
 
 <div>
 
-<h2 style="font-size:2rem;font-weight:800;letter-spacing:-.025em;">
+<h2>
 
 ¿Quieres un dibujo
 
-<span class="text-gradient">
+<span class="text-accent">
 personalizado
 </span>?
 
 </h2>
 
-<p style="margin-top:1rem;color:var(--muted-foreground);">
+
+<p class="personalizados-description">
 
 Desde retratos de personas y mascotas hasta
 ilustraciones para regalos, decoración o proyectos
@@ -2149,50 +2463,46 @@ obra única hecha a mano.
 
 </p>
 
+
 <ul>
 
 <li>
 
-<span class="icon-check gradient-brand">
-
+<span class="icon-check">
 ✓
-
 </span>
 
 Retratos personalizados
 
 </li>
 
+
 <li>
 
-<span class="icon-check gradient-brand">
-
+<span class="icon-check">
 ✓
-
 </span>
 
 Ilustraciones de mascotas
 
 </li>
 
+
 <li>
 
-<span class="icon-check gradient-brand">
-
+<span class="icon-check">
 ✓
-
 </span>
 
 Regalos originales
 
 </li>
 
+
 <li>
 
-<span class="icon-check gradient-brand">
-
+<span class="icon-check">
 ✓
-
 </span>
 
 Arte decorativo
@@ -2200,6 +2510,7 @@ Arte decorativo
 </li>
 
 </ul>
+
 
 <div class="btn-group">
 
@@ -2214,7 +2525,11 @@ Pedir personalizado
 
 </div>
 
-<!-- SOBRE MÍ -->
+
+
+<!-- =====================================================
+     SOBRE MÍ
+===================================================== -->
 
 <div class="about-card"
 id="sobre-mi">
@@ -2226,28 +2541,30 @@ Sobre mí
 </h3>
 
 <p>
-Artista visual apasionada por el dibujo y la ilustración.
+Una pequeña parte detrás de cada dibujo.
 </p>
 
 </div>
+
 
 <div class="about-card-body">
 
 <img
 src="05_dibujo_a_lapiz.png"
-alt="Ejemplo de dibujo a lápiz"
-loading="lazy">
+alt="Ejemplo de dibujo a lápiz">
+
 
 <img
 src="03_dibujo_acuarela.png"
-alt="Ejemplo de acuarela"
-loading="lazy">
+alt="Ejemplo de acuarela">
+
 
 <p>
 
-Trabajo desde Balnearia, Córdoba,
-creando piezas únicas que transmiten
-emociones y capturan momentos especiales.
+Soy una artista apasionada por el dibujo
+y la ilustración. Me gusta transformar ideas,
+emociones y momentos especiales en obras
+hechas con dedicación y detalle.
 
 </p>
 
@@ -2255,15 +2572,17 @@ emociones y capturan momentos especiales.
 
 </div>
 
-</div>
 
 </div>
 
 </section>
 
+
 </main>
 
 </div>
+
+
 
 <!-- =====================================================
      GALERÍA BLANCO Y NEGRO
@@ -2274,6 +2593,7 @@ class="gallery-page">
 
 <div class="container">
 
+
 <div class="gallery-header">
 
 <button class="back-btn"
@@ -2283,92 +2603,103 @@ onclick="mostrarInicio()">
 
 </button>
 
+
 <h2>
 
 Dibujos en
 
-<span class="text-gradient">
+<span class="text-accent">
 blanco y negro
 </span>
 
 </h2>
 
+
 <p>
 
-Una selección de dibujos realizados
+Una colección de dibujos realizados
 con lápiz, grafito y diferentes técnicas.
 
 </p>
 
 </div>
 
+
 <div class="gallery-grid">
 
+
 <div class="gallery-item"
-onclick="abrirImagen('blanco1.png','Dibujo en blanco y negro 1')">
+onclick="abrirImagen('blanco1.png','Retrato en grafito')">
 
 <img src="blanco1.png"
 alt="Dibujo blanco y negro 1">
 
 <div class="gallery-caption">
-Dibujo en grafito
+Retrato en grafito
 </div>
 
 </div>
+
 
 <div class="gallery-item"
-onclick="abrirImagen('blanco2.png','Dibujo en blanco y negro 2')">
+onclick="abrirImagen('blanco2.png','Retrato artístico')">
 
 <img src="blanco2.png"
 alt="Dibujo blanco y negro 2">
 
 <div class="gallery-caption">
-Retrato a lápiz
+Retrato artístico
 </div>
 
 </div>
+
 
 <div class="gallery-item"
-onclick="abrirImagen('blanco3.png','Dibujo en blanco y negro 3')">
+onclick="abrirImagen('blanco3.png','Naturaleza')">
 
 <img src="blanco3.png"
 alt="Dibujo blanco y negro 3">
 
 <div class="gallery-caption">
-Paisaje en grafito
+Naturaleza
 </div>
 
 </div>
+
 
 <div class="gallery-item"
-onclick="abrirImagen('blanco4.png','Dibujo en blanco y negro 4')">
+onclick="abrirImagen('blanco4.png','Detalles a lápiz')">
 
 <img src="blanco4.png"
 alt="Dibujo blanco y negro 4">
 
 <div class="gallery-caption">
-Ilustración a lápiz
+Detalles a lápiz
 </div>
 
 </div>
+
 
 <div class="gallery-item"
-onclick="abrirImagen('blanco5.png','Dibujo en blanco y negro 5')">
+onclick="abrirImagen('blanco5.png','Ilustración clásica')">
 
 <img src="blanco5.png"
 alt="Dibujo blanco y negro 5">
 
 <div class="gallery-caption">
-Naturaleza en grafito
+Ilustración clásica
 </div>
 
 </div>
+
 
 </div>
 
 </div>
 
 </section>
+
+
 
 <!-- =====================================================
      GALERÍA ACUARELA
@@ -2379,6 +2710,7 @@ class="gallery-page">
 
 <div class="container">
 
+
 <div class="gallery-header">
 
 <button class="back-btn"
@@ -2388,68 +2720,36 @@ onclick="mostrarInicio()">
 
 </button>
 
+
 <h2>
 
 Dibujos en
 
-<span class="text-gradient">
+<span class="text-accent">
 acuarela
 </span>
 
 </h2>
 
+
 <p>
 
-Colores suaves y pinceladas delicadas
-que dan vida a cada ilustración.
+Colores suaves, transparencias y pinceladas
+que crean ilustraciones delicadas y llenas de vida.
 
 </p>
 
 </div>
 
+
 <div class="gallery-grid">
 
+
 <div class="gallery-item"
-onclick="abrirImagen('acuarela1.png','Acuarela 1')">
+onclick="abrirImagen('acuarela1.png','Flores en acuarela')">
 
 <img src="acuarela1.png"
-alt="Dibujo en acuarela 1">
-
-<div class="gallery-caption">
-Acuarela floral
-</div>
-
-</div>
-
-<div class="gallery-item"
-onclick="abrirImagen('acuarela2.png','Acuarela 2')">
-
-<img src="acuarela2.png"
-alt="Dibujo en acuarela 2">
-
-<div class="gallery-caption">
-Paisaje en acuarela
-</div>
-
-</div>
-
-<div class="gallery-item"
-onclick="abrirImagen('acuarela3.png','Acuarela 3')">
-
-<img src="acuarela3.png"
-alt="Dibujo en acuarela 3">
-
-<div class="gallery-caption">
-Naturaleza
-</div>
-
-</div>
-
-<div class="gallery-item"
-onclick="abrirImagen('acuarela4.png','Acuarela 4')">
-
-<img src="acuarela4.png"
-alt="Dibujo en acuarela 4">
+alt="Acuarela 1">
 
 <div class="gallery-caption">
 Flores en acuarela
@@ -2457,23 +2757,66 @@ Flores en acuarela
 
 </div>
 
-<div class="gallery-item"
-onclick="abrirImagen('acuarela5.png','Acuarela 5')">
 
-<img src="acuarela5.png"
-alt="Dibujo en acuarela 5">
+<div class="gallery-item"
+onclick="abrirImagen('acuarela2.png','Paisaje')">
+
+<img src="acuarela2.png"
+alt="Acuarela 2">
 
 <div class="gallery-caption">
-Ilustración artística
+Paisaje
 </div>
 
 </div>
+
+
+<div class="gallery-item"
+onclick="abrirImagen('acuarela3.png','Naturaleza')">
+
+<img src="acuarela3.png"
+alt="Acuarela 3">
+
+<div class="gallery-caption">
+Naturaleza
+</div>
+
+</div>
+
+
+<div class="gallery-item"
+onclick="abrirImagen('acuarela4.png','Composición floral')">
+
+<img src="acuarela4.png"
+alt="Acuarela 4">
+
+<div class="gallery-caption">
+Composición floral
+</div>
+
+</div>
+
+
+<div class="gallery-item"
+onclick="abrirImagen('acuarela5.png','Ilustración delicada')">
+
+<img src="acuarela5.png"
+alt="Acuarela 5">
+
+<div class="gallery-caption">
+Ilustración delicada
+</div>
+
+</div>
+
 
 </div>
 
 </div>
 
 </section>
+
+
 
 <!-- =====================================================
      GALERÍA A COLOR
@@ -2484,6 +2827,7 @@ class="gallery-page">
 
 <div class="container">
 
+
 <div class="gallery-header">
 
 <button class="back-btn"
@@ -2493,65 +2837,72 @@ onclick="mostrarInicio()">
 
 </button>
 
+
 <h2>
 
 Dibujos
 
-<span class="text-gradient">
+<span class="text-accent">
 a color
 </span>
 
 </h2>
 
+
 <p>
 
-Ilustraciones realizadas con lápices de colores
-y diferentes técnicas artísticas.
+Ilustraciones llenas de color realizadas
+con lápices y diferentes técnicas.
 
 </p>
 
 </div>
 
+
 <div class="gallery-grid">
 
+
 <div class="gallery-item"
-onclick="abrirImagen('color1.png','Dibujo a color 1')">
+onclick="abrirImagen('color1.png','Ilustración colorida')">
 
 <img src="color1.png"
 alt="Dibujo a color 1">
 
 <div class="gallery-caption">
-Retrato a color
+Ilustración colorida
 </div>
 
 </div>
+
 
 <div class="gallery-item"
-onclick="abrirImagen('color2.png','Dibujo a color 2')">
+onclick="abrirImagen('color2.png','Flores a color')">
 
 <img src="color2.png"
 alt="Dibujo a color 2">
 
 <div class="gallery-caption">
-Ilustración floral
+Flores a color
 </div>
 
 </div>
+
 
 <div class="gallery-item"
-onclick="abrirImagen('color3.png','Dibujo a color 3')">
+onclick="abrirImagen('color3.png','Personaje ilustrado')">
 
 <img src="color3.png"
 alt="Dibujo a color 3">
 
 <div class="gallery-caption">
-Animal a color
+Personaje ilustrado
 </div>
 
 </div>
+
 
 <div class="gallery-item"
-onclick="abrirImagen('color4.png','Dibujo a color 4')">
+onclick="abrirImagen('color4.png','Ilustración vibrante')">
 
 <img src="color4.png"
 alt="Dibujo a color 4">
@@ -2562,17 +2913,19 @@ Ilustración vibrante
 
 </div>
 
+
 <div class="gallery-item"
-onclick="abrirImagen('color5.png','Dibujo a color 5')">
+onclick="abrirImagen('color5.png','Arte a color')">
 
 <img src="color5.png"
 alt="Dibujo a color 5">
 
 <div class="gallery-caption">
-Lápices de colores
+Arte a color
 </div>
 
 </div>
+
 
 </div>
 
@@ -2580,13 +2933,15 @@ Lápices de colores
 
 </section>
 
+
+
 <!-- =====================================================
      VISOR DE IMÁGENES
 ===================================================== -->
 
 <div id="imageModal"
 class="image-modal"
-onclick="cerrarImagen(event)">
+onclick="cerrarModal(event)">
 
 <div class="modal-content">
 
@@ -2594,21 +2949,38 @@ onclick="cerrarImagen(event)">
 onclick="cerrarImagen()">
 
 ×
-
 </button>
+
 
 <img id="modalImage"
 src=""
 alt="">
 
+
 <div id="modalTitle"
 class="modal-title">
-
 </div>
 
 </div>
 
 </div>
+
+
+
+<!-- =====================================================
+     BOTÓN VOLVER ARRIBA
+===================================================== -->
+
+<button id="topBtn"
+class="top-btn"
+onclick="window.scrollTo({top:0,behavior:'smooth'})"
+aria-label="Volver arriba">
+
+↑
+
+</button>
+
+
 
 <!-- =====================================================
      FOOTER
@@ -2620,13 +2992,15 @@ class="modal-title">
 
 <div class="footer-grid">
 
+
 <div class="footer-brand">
 
-<a href="#inicio"
+<a href="#"
 class="logo"
-style="color:white;">
+style="color:white;"
+onclick="mostrarInicio()">
 
-<div class="logo-icon gradient-brand">
+<div class="logo-icon">
 
 <svg xmlns="http://www.w3.org/2000/svg"
 fill="none"
@@ -2640,19 +3014,18 @@ stroke-width="2">
 
 </div>
 
+
 <span>
 
 Arte
-
-<span style="color:var(--pink);">
-
-&Dibujos
-
+<span style="color:var(--rosa-claro);">
+& Dibujos
 </span>
 
 </span>
 
 </a>
+
 
 <p>
 
@@ -2663,11 +3036,14 @@ y dedicación. Cada trazo cuenta una historia única.
 
 </div>
 
+
+
 <div class="footer-col">
 
 <h4>
 Contacto
 </h4>
+
 
 <ul>
 
@@ -2682,6 +3058,7 @@ rel="noreferrer">
 </a>
 
 </li>
+
 
 <li>
 
@@ -2699,7 +3076,9 @@ rel="noreferrer">
 
 </div>
 
+
 </div>
+
 
 <div class="footer-bottom">
 
@@ -2716,6 +3095,8 @@ Todos los derechos reservados.
 
 </footer>
 
+
+
 <!-- =====================================================
      JAVASCRIPT
 ===================================================== -->
@@ -2731,16 +3112,13 @@ function abrirGaleria(id){
 
     document.getElementById("paginaPrincipal").style.display="none";
 
-
     document.querySelectorAll(".gallery-page").forEach(function(galeria){
 
         galeria.classList.remove("active");
 
     });
 
-
     document.getElementById(id).classList.add("active");
-
 
     window.scrollTo({
 
@@ -2755,13 +3133,12 @@ function abrirGaleria(id){
 
 
 /* =====================================================
-   VOLVER A LA PÁGINA PRINCIPAL
+   VOLVER AL INICIO
 ===================================================== */
 
 function mostrarInicio(){
 
     document.getElementById("paginaPrincipal").style.display="block";
-
 
     document.querySelectorAll(".gallery-page").forEach(function(galeria){
 
@@ -2769,9 +3146,7 @@ function mostrarInicio(){
 
     });
 
-
     cerrarImagen();
-
 
     window.scrollTo({
 
@@ -2797,16 +3172,13 @@ function abrirImagen(imagen,titulo){
 
     const modalTitle=document.getElementById("modalTitle");
 
-
     modalImage.src=imagen;
 
     modalImage.alt=titulo;
 
     modalTitle.textContent=titulo;
 
-
     modal.classList.add("open");
-
 
     document.body.style.overflow="hidden";
 
@@ -2818,40 +3190,38 @@ function abrirImagen(imagen,titulo){
    CERRAR IMAGEN
 ===================================================== */
 
-function cerrarImagen(event){
-
-    if(event && event.target !== document.getElementById("imageModal")){
-
-        return;
-
-    }
-
+function cerrarImagen(){
 
     const modal=document.getElementById("imageModal");
 
-
     modal.classList.remove("open");
-
 
     document.body.style.overflow="";
 
 }
 
 
+function cerrarModal(event){
+
+    if(event.target === document.getElementById("imageModal")){
+
+        cerrarImagen();
+
+    }
+
+}
+
+
 
 /* =====================================================
-   CERRAR CON ESC
+   ESC PARA CERRAR
 ===================================================== */
 
 document.addEventListener("keydown",function(event){
 
     if(event.key==="Escape"){
 
-        const modal=document.getElementById("imageModal");
-
-        modal.classList.remove("open");
-
-        document.body.style.overflow="";
+        cerrarImagen();
 
     }
 
@@ -2860,7 +3230,7 @@ document.addEventListener("keydown",function(event){
 
 
 /* =====================================================
-   CERRAR MENÚ
+   MENÚ MÓVIL
 ===================================================== */
 
 function cerrarMenu(){
@@ -2869,9 +3239,68 @@ function cerrarMenu(){
 
 }
 
+
+
+/* =====================================================
+   ANIMACIONES AL HACER SCROLL
+===================================================== */
+
+const elementosReveal=document.querySelectorAll(".reveal");
+
+const observer=new IntersectionObserver(
+
+function(entries){
+
+    entries.forEach(function(entry){
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("visible");
+
+        }
+
+    });
+
+},
+
+{
+
+    threshold:.15
+
+});
+
+
+elementosReveal.forEach(function(elemento){
+
+    observer.observe(elemento);
+
+});
+
+
+
+/* =====================================================
+   BOTÓN VOLVER ARRIBA
+===================================================== */
+
+const topBtn=document.getElementById("topBtn");
+
+window.addEventListener("scroll",function(){
+
+    if(window.scrollY>500){
+
+        topBtn.classList.add("show");
+
+    }else{
+
+        topBtn.classList.remove("show");
+
+    }
+
+});
+
 </script>
+
 
 </body>
 
 </html>
-
